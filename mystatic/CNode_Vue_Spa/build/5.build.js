@@ -1275,7 +1275,7 @@ webpackJsonp([5,10],[
 
 	// <template>
 	// 	<div class="meun" :class="{'showMeun':showm}">
-	// 		<div class="user_info" v-if="userLoginState">
+	// 		<div class="user_info" v-if="userLoginState" v-link="{name:'userhome',params:{username:this.user_name}}">
 	// 			<div class="avatar">
 	// 				<img :src="user_avatar" alt="">
 	// 			</div>
@@ -1389,7 +1389,7 @@ webpackJsonp([5,10],[
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-if=\"userLoginState\">未读消息</li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
+	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\" v-link=\"{name:'userhome',params:{username:this.user_name}}\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-if=\"userLoginState\">未读消息</li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
 
 /***/ },
 /* 35 */
