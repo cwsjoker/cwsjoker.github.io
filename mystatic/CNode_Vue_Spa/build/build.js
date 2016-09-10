@@ -104,7 +104,7 @@ webpackJsonp([0,10],[
 	        //关于我们
 	        name: 'about',
 	        component: function component(resolve) {
-	            __webpack_require__.e/* require */(9, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(76)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
+	            __webpack_require__.e/* require */(9, function(__webpack_require__) { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(77)]; (resolve.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this));
 	        }
 	    }
 	});
@@ -14419,6 +14419,7 @@ webpackJsonp([0,10],[
 
 	'use strict';
 
+	// 时间格式YYYY-MM-DD HH:mm:ss 转化为YYYY-MM-DD
 	exports.getDateTime = function (dataTime) {
 		var time = dataTime;
 		var str = time.substring(0, 10);
@@ -14466,8 +14467,6 @@ webpackJsonp([0,10],[
 
 	// 判断发帖时间与现在时间的间隔
 	exports.getLastTime = function (creatTime) {
-		// let oldtime = creatTime.substring(0, 10);
-		// let newtime = new Date();
 		var oldtime = new Date(creatTime);
 		var newtime = (new Date() - oldtime) / 1000;
 		var month = Math.floor(newtime / 3600 / 24 / 30);

@@ -1438,12 +1438,12 @@ webpackJsonp([8,10],[
 
 	var __vue_script__, __vue_template__
 	__webpack_require__(72)
-	__vue_script__ = __webpack_require__(74)
+	__vue_script__ = __webpack_require__(75)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\vue\\userhome.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(75)
+	__vue_template__ = __webpack_require__(76)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -1496,13 +1496,19 @@ webpackJsonp([8,10],[
 
 
 	// module
-	exports.push([module.id, ".userhome {\n  overflow: hidden;\n  margin: 0 5px;\n  padding: 4rem 0; }\n  .userhome .userInfo .userInfoTitle {\n    border-radius: 7px 7px 0 0;\n    background: #fff;\n    padding: 10px;\n    color: #80bd01;\n    font-size: 14px; }\n  .userhome .userInfo .userInfoBox {\n    margin-top: 5px;\n    padding: 10px;\n    background: #fff;\n    opacity: 0.8; }\n    .userhome .userInfo .userInfoBox .useravatar {\n      margin: 0 auto; }\n      .userhome .userInfo .userInfoBox .useravatar img {\n        display: block;\n        width: 80px;\n        height: 80px;\n        margin: 0 auto;\n        border-radius: 40px; }\n    .userhome .userInfo .userInfoBox .userbase .name {\n      color: #A8B5C3;\n      font-size: 22px;\n      text-align: center;\n      line-height: 40px; }\n    .userhome .userInfo .userInfoBox .userbase .baseinfo {\n      color: #A8B5C3;\n      font-size: 16px;\n      text-align: center; }\n      .userhome .userInfo .userInfoBox .userbase .baseinfo span {\n        margin-right: 20px; }\n  .userhome .userTopics, .userhome .userReplies {\n    margin-top: 5px; }\n    .userhome .userTopics .userTopicsTitle, .userhome .userTopics .userRepliesTitle, .userhome .userReplies .userTopicsTitle, .userhome .userReplies .userRepliesTitle {\n      background: #fff;\n      padding: 10px;\n      color: #80bd01;\n      font-size: 14px; }\n    .userhome .userTopics .userTopicsBox, .userhome .userTopics .userRepliesBox, .userhome .userReplies .userTopicsBox, .userhome .userReplies .userRepliesBox {\n      margin-top: 5px;\n      padding-top: 10px;\n      background: #fff;\n      opacity: 0.8; }\n      .userhome .userTopics .userTopicsBox .topicsitem, .userhome .userTopics .userTopicsBox .repliesitem, .userhome .userTopics .userRepliesBox .topicsitem, .userhome .userTopics .userRepliesBox .repliesitem, .userhome .userReplies .userTopicsBox .topicsitem, .userhome .userReplies .userTopicsBox .repliesitem, .userhome .userReplies .userRepliesBox .topicsitem, .userhome .userReplies .userRepliesBox .repliesitem {\n        position: relative;\n        padding: 10px;\n        background: #fff;\n        border-bottom: 1px solid #e1e1e1; }\n        .userhome .userTopics .userTopicsBox .topicsitem .avatar, .userhome .userTopics .userTopicsBox .repliesitem .avatar, .userhome .userTopics .userRepliesBox .topicsitem .avatar, .userhome .userTopics .userRepliesBox .repliesitem .avatar, .userhome .userReplies .userTopicsBox .topicsitem .avatar, .userhome .userReplies .userTopicsBox .repliesitem .avatar, .userhome .userReplies .userRepliesBox .topicsitem .avatar, .userhome .userReplies .userRepliesBox .repliesitem .avatar {\n          display: block;\n          float: left;\n          width: 2rem;\n          height: 2rem; }\n          .userhome .userTopics .userTopicsBox .topicsitem .avatar img, .userhome .userTopics .userTopicsBox .repliesitem .avatar img, .userhome .userTopics .userRepliesBox .topicsitem .avatar img, .userhome .userTopics .userRepliesBox .repliesitem .avatar img, .userhome .userReplies .userTopicsBox .topicsitem .avatar img, .userhome .userReplies .userTopicsBox .repliesitem .avatar img, .userhome .userReplies .userRepliesBox .topicsitem .avatar img, .userhome .userReplies .userRepliesBox .repliesitem .avatar img {\n            display: inline-block;\n            width: 100%;\n            height: 100%; }\n        .userhome .userTopics .userTopicsBox .topicsitem .art-inf, .userhome .userTopics .userTopicsBox .repliesitem .art-inf, .userhome .userTopics .userRepliesBox .topicsitem .art-inf, .userhome .userTopics .userRepliesBox .repliesitem .art-inf, .userhome .userReplies .userTopicsBox .topicsitem .art-inf, .userhome .userReplies .userTopicsBox .repliesitem .art-inf, .userhome .userReplies .userRepliesBox .topicsitem .art-inf, .userhome .userReplies .userRepliesBox .repliesitem .art-inf {\n          position: relative;\n          float: left;\n          width: 80%;\n          height: 2rem;\n          margin-left: 15px; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf a, .userhome .userTopics .userTopicsBox .repliesitem .art-inf a, .userhome .userTopics .userRepliesBox .topicsitem .art-inf a, .userhome .userTopics .userRepliesBox .repliesitem .art-inf a, .userhome .userReplies .userTopicsBox .topicsitem .art-inf a, .userhome .userReplies .userTopicsBox .repliesitem .art-inf a, .userhome .userReplies .userRepliesBox .topicsitem .art-inf a, .userhome .userReplies .userRepliesBox .repliesitem .art-inf a {\n            display: inline-block;\n            overflow: hidden;\n            width: 80%;\n            height: 2rem;\n            color: #000;\n            font-size: 1rem;\n            line-height: 2rem;\n            white-space: nowrap;\n            text-overflow: ellipsis; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf span, .userhome .userTopics .userTopicsBox .repliesitem .art-inf span, .userhome .userTopics .userRepliesBox .topicsitem .art-inf span, .userhome .userTopics .userRepliesBox .repliesitem .art-inf span, .userhome .userReplies .userTopicsBox .topicsitem .art-inf span, .userhome .userReplies .userTopicsBox .repliesitem .art-inf span, .userhome .userReplies .userRepliesBox .topicsitem .art-inf span, .userhome .userReplies .userRepliesBox .repliesitem .art-inf span {\n            display: inline-block; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf .last-time, .userhome .userTopics .userTopicsBox .repliesitem .art-inf .last-time, .userhome .userTopics .userRepliesBox .topicsitem .art-inf .last-time, .userhome .userTopics .userRepliesBox .repliesitem .art-inf .last-time, .userhome .userReplies .userTopicsBox .topicsitem .art-inf .last-time, .userhome .userReplies .userTopicsBox .repliesitem .art-inf .last-time, .userhome .userReplies .userRepliesBox .topicsitem .art-inf .last-time, .userhome .userReplies .userRepliesBox .repliesitem .art-inf .last-time {\n            position: absolute;\n            right: 0px;\n            bottom: 0px;\n            font-size: 12px;\n            padding: 2px 4px; }\n", ""]);
+	exports.push([module.id, ".userhome {\n  overflow: hidden;\n  margin: 0 5px;\n  padding: 4rem 0; }\n  .userhome .userInfo .userInfoTitle {\n    border-radius: 7px 7px 0 0;\n    background: #fff;\n    padding: 10px;\n    color: #80bd01;\n    font-size: 14px; }\n  .userhome .userInfo .userInfoBox {\n    margin-top: 5px;\n    padding: 10px;\n    background: #fff;\n    opacity: 0.8; }\n    .userhome .userInfo .userInfoBox .useravatar {\n      margin: 0 auto; }\n      .userhome .userInfo .userInfoBox .useravatar img {\n        display: block;\n        width: 80px;\n        height: 80px;\n        margin: 0 auto;\n        border-radius: 40px; }\n    .userhome .userInfo .userInfoBox .userbase .name {\n      color: #A8B5C3;\n      font-size: 22px;\n      text-align: center;\n      line-height: 40px; }\n    .userhome .userInfo .userInfoBox .userbase .baseinfo {\n      color: #A8B5C3;\n      font-size: 16px;\n      text-align: center; }\n      .userhome .userInfo .userInfoBox .userbase .baseinfo span {\n        margin-right: 20px; }\n  .userhome .userTopics, .userhome .userReplies, .userhome .userCollect {\n    margin-top: 5px; }\n    .userhome .userTopics .userTopicsTitle, .userhome .userTopics .userRepliesTitle, .userhome .userTopics .userCollectTitle, .userhome .userReplies .userTopicsTitle, .userhome .userReplies .userRepliesTitle, .userhome .userReplies .userCollectTitle, .userhome .userCollect .userTopicsTitle, .userhome .userCollect .userRepliesTitle, .userhome .userCollect .userCollectTitle {\n      background: #fff;\n      padding: 10px;\n      color: #80bd01;\n      font-size: 14px; }\n    .userhome .userTopics .userTopicsBox, .userhome .userTopics .userRepliesBox, .userhome .userTopics .userCollectBox, .userhome .userReplies .userTopicsBox, .userhome .userReplies .userRepliesBox, .userhome .userReplies .userCollectBox, .userhome .userCollect .userTopicsBox, .userhome .userCollect .userRepliesBox, .userhome .userCollect .userCollectBox {\n      margin-top: 5px;\n      padding-top: 10px;\n      background: #fff;\n      opacity: 0.8; }\n      .userhome .userTopics .userTopicsBox .topicsitem, .userhome .userTopics .userTopicsBox .repliesitem, .userhome .userTopics .userTopicsBox .collectitem, .userhome .userTopics .userRepliesBox .topicsitem, .userhome .userTopics .userRepliesBox .repliesitem, .userhome .userTopics .userRepliesBox .collectitem, .userhome .userTopics .userCollectBox .topicsitem, .userhome .userTopics .userCollectBox .repliesitem, .userhome .userTopics .userCollectBox .collectitem, .userhome .userReplies .userTopicsBox .topicsitem, .userhome .userReplies .userTopicsBox .repliesitem, .userhome .userReplies .userTopicsBox .collectitem, .userhome .userReplies .userRepliesBox .topicsitem, .userhome .userReplies .userRepliesBox .repliesitem, .userhome .userReplies .userRepliesBox .collectitem, .userhome .userReplies .userCollectBox .topicsitem, .userhome .userReplies .userCollectBox .repliesitem, .userhome .userReplies .userCollectBox .collectitem, .userhome .userCollect .userTopicsBox .topicsitem, .userhome .userCollect .userTopicsBox .repliesitem, .userhome .userCollect .userTopicsBox .collectitem, .userhome .userCollect .userRepliesBox .topicsitem, .userhome .userCollect .userRepliesBox .repliesitem, .userhome .userCollect .userRepliesBox .collectitem, .userhome .userCollect .userCollectBox .topicsitem, .userhome .userCollect .userCollectBox .repliesitem, .userhome .userCollect .userCollectBox .collectitem {\n        position: relative;\n        padding: 10px;\n        background: #fff;\n        border-bottom: 1px solid #e1e1e1; }\n        .userhome .userTopics .userTopicsBox .topicsitem .avatar, .userhome .userTopics .userTopicsBox .repliesitem .avatar, .userhome .userTopics .userTopicsBox .collectitem .avatar, .userhome .userTopics .userRepliesBox .topicsitem .avatar, .userhome .userTopics .userRepliesBox .repliesitem .avatar, .userhome .userTopics .userRepliesBox .collectitem .avatar, .userhome .userTopics .userCollectBox .topicsitem .avatar, .userhome .userTopics .userCollectBox .repliesitem .avatar, .userhome .userTopics .userCollectBox .collectitem .avatar, .userhome .userReplies .userTopicsBox .topicsitem .avatar, .userhome .userReplies .userTopicsBox .repliesitem .avatar, .userhome .userReplies .userTopicsBox .collectitem .avatar, .userhome .userReplies .userRepliesBox .topicsitem .avatar, .userhome .userReplies .userRepliesBox .repliesitem .avatar, .userhome .userReplies .userRepliesBox .collectitem .avatar, .userhome .userReplies .userCollectBox .topicsitem .avatar, .userhome .userReplies .userCollectBox .repliesitem .avatar, .userhome .userReplies .userCollectBox .collectitem .avatar, .userhome .userCollect .userTopicsBox .topicsitem .avatar, .userhome .userCollect .userTopicsBox .repliesitem .avatar, .userhome .userCollect .userTopicsBox .collectitem .avatar, .userhome .userCollect .userRepliesBox .topicsitem .avatar, .userhome .userCollect .userRepliesBox .repliesitem .avatar, .userhome .userCollect .userRepliesBox .collectitem .avatar, .userhome .userCollect .userCollectBox .topicsitem .avatar, .userhome .userCollect .userCollectBox .repliesitem .avatar, .userhome .userCollect .userCollectBox .collectitem .avatar {\n          display: block;\n          float: left;\n          width: 2rem;\n          height: 2rem; }\n          .userhome .userTopics .userTopicsBox .topicsitem .avatar img, .userhome .userTopics .userTopicsBox .repliesitem .avatar img, .userhome .userTopics .userTopicsBox .collectitem .avatar img, .userhome .userTopics .userRepliesBox .topicsitem .avatar img, .userhome .userTopics .userRepliesBox .repliesitem .avatar img, .userhome .userTopics .userRepliesBox .collectitem .avatar img, .userhome .userTopics .userCollectBox .topicsitem .avatar img, .userhome .userTopics .userCollectBox .repliesitem .avatar img, .userhome .userTopics .userCollectBox .collectitem .avatar img, .userhome .userReplies .userTopicsBox .topicsitem .avatar img, .userhome .userReplies .userTopicsBox .repliesitem .avatar img, .userhome .userReplies .userTopicsBox .collectitem .avatar img, .userhome .userReplies .userRepliesBox .topicsitem .avatar img, .userhome .userReplies .userRepliesBox .repliesitem .avatar img, .userhome .userReplies .userRepliesBox .collectitem .avatar img, .userhome .userReplies .userCollectBox .topicsitem .avatar img, .userhome .userReplies .userCollectBox .repliesitem .avatar img, .userhome .userReplies .userCollectBox .collectitem .avatar img, .userhome .userCollect .userTopicsBox .topicsitem .avatar img, .userhome .userCollect .userTopicsBox .repliesitem .avatar img, .userhome .userCollect .userTopicsBox .collectitem .avatar img, .userhome .userCollect .userRepliesBox .topicsitem .avatar img, .userhome .userCollect .userRepliesBox .repliesitem .avatar img, .userhome .userCollect .userRepliesBox .collectitem .avatar img, .userhome .userCollect .userCollectBox .topicsitem .avatar img, .userhome .userCollect .userCollectBox .repliesitem .avatar img, .userhome .userCollect .userCollectBox .collectitem .avatar img {\n            display: inline-block;\n            width: 100%;\n            height: 100%; }\n        .userhome .userTopics .userTopicsBox .topicsitem .art-inf, .userhome .userTopics .userTopicsBox .repliesitem .art-inf, .userhome .userTopics .userTopicsBox .collectitem .art-inf, .userhome .userTopics .userRepliesBox .topicsitem .art-inf, .userhome .userTopics .userRepliesBox .repliesitem .art-inf, .userhome .userTopics .userRepliesBox .collectitem .art-inf, .userhome .userTopics .userCollectBox .topicsitem .art-inf, .userhome .userTopics .userCollectBox .repliesitem .art-inf, .userhome .userTopics .userCollectBox .collectitem .art-inf, .userhome .userReplies .userTopicsBox .topicsitem .art-inf, .userhome .userReplies .userTopicsBox .repliesitem .art-inf, .userhome .userReplies .userTopicsBox .collectitem .art-inf, .userhome .userReplies .userRepliesBox .topicsitem .art-inf, .userhome .userReplies .userRepliesBox .repliesitem .art-inf, .userhome .userReplies .userRepliesBox .collectitem .art-inf, .userhome .userReplies .userCollectBox .topicsitem .art-inf, .userhome .userReplies .userCollectBox .repliesitem .art-inf, .userhome .userReplies .userCollectBox .collectitem .art-inf, .userhome .userCollect .userTopicsBox .topicsitem .art-inf, .userhome .userCollect .userTopicsBox .repliesitem .art-inf, .userhome .userCollect .userTopicsBox .collectitem .art-inf, .userhome .userCollect .userRepliesBox .topicsitem .art-inf, .userhome .userCollect .userRepliesBox .repliesitem .art-inf, .userhome .userCollect .userRepliesBox .collectitem .art-inf, .userhome .userCollect .userCollectBox .topicsitem .art-inf, .userhome .userCollect .userCollectBox .repliesitem .art-inf, .userhome .userCollect .userCollectBox .collectitem .art-inf {\n          position: relative;\n          float: left;\n          width: 80%;\n          height: 2rem;\n          margin-left: 15px; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf a, .userhome .userTopics .userTopicsBox .repliesitem .art-inf a, .userhome .userTopics .userTopicsBox .collectitem .art-inf a, .userhome .userTopics .userRepliesBox .topicsitem .art-inf a, .userhome .userTopics .userRepliesBox .repliesitem .art-inf a, .userhome .userTopics .userRepliesBox .collectitem .art-inf a, .userhome .userTopics .userCollectBox .topicsitem .art-inf a, .userhome .userTopics .userCollectBox .repliesitem .art-inf a, .userhome .userTopics .userCollectBox .collectitem .art-inf a, .userhome .userReplies .userTopicsBox .topicsitem .art-inf a, .userhome .userReplies .userTopicsBox .repliesitem .art-inf a, .userhome .userReplies .userTopicsBox .collectitem .art-inf a, .userhome .userReplies .userRepliesBox .topicsitem .art-inf a, .userhome .userReplies .userRepliesBox .repliesitem .art-inf a, .userhome .userReplies .userRepliesBox .collectitem .art-inf a, .userhome .userReplies .userCollectBox .topicsitem .art-inf a, .userhome .userReplies .userCollectBox .repliesitem .art-inf a, .userhome .userReplies .userCollectBox .collectitem .art-inf a, .userhome .userCollect .userTopicsBox .topicsitem .art-inf a, .userhome .userCollect .userTopicsBox .repliesitem .art-inf a, .userhome .userCollect .userTopicsBox .collectitem .art-inf a, .userhome .userCollect .userRepliesBox .topicsitem .art-inf a, .userhome .userCollect .userRepliesBox .repliesitem .art-inf a, .userhome .userCollect .userRepliesBox .collectitem .art-inf a, .userhome .userCollect .userCollectBox .topicsitem .art-inf a, .userhome .userCollect .userCollectBox .repliesitem .art-inf a, .userhome .userCollect .userCollectBox .collectitem .art-inf a {\n            display: inline-block;\n            overflow: hidden;\n            width: 80%;\n            height: 2rem;\n            color: #000;\n            font-size: 1rem;\n            line-height: 2rem;\n            white-space: nowrap;\n            text-overflow: ellipsis; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf span, .userhome .userTopics .userTopicsBox .repliesitem .art-inf span, .userhome .userTopics .userTopicsBox .collectitem .art-inf span, .userhome .userTopics .userRepliesBox .topicsitem .art-inf span, .userhome .userTopics .userRepliesBox .repliesitem .art-inf span, .userhome .userTopics .userRepliesBox .collectitem .art-inf span, .userhome .userTopics .userCollectBox .topicsitem .art-inf span, .userhome .userTopics .userCollectBox .repliesitem .art-inf span, .userhome .userTopics .userCollectBox .collectitem .art-inf span, .userhome .userReplies .userTopicsBox .topicsitem .art-inf span, .userhome .userReplies .userTopicsBox .repliesitem .art-inf span, .userhome .userReplies .userTopicsBox .collectitem .art-inf span, .userhome .userReplies .userRepliesBox .topicsitem .art-inf span, .userhome .userReplies .userRepliesBox .repliesitem .art-inf span, .userhome .userReplies .userRepliesBox .collectitem .art-inf span, .userhome .userReplies .userCollectBox .topicsitem .art-inf span, .userhome .userReplies .userCollectBox .repliesitem .art-inf span, .userhome .userReplies .userCollectBox .collectitem .art-inf span, .userhome .userCollect .userTopicsBox .topicsitem .art-inf span, .userhome .userCollect .userTopicsBox .repliesitem .art-inf span, .userhome .userCollect .userTopicsBox .collectitem .art-inf span, .userhome .userCollect .userRepliesBox .topicsitem .art-inf span, .userhome .userCollect .userRepliesBox .repliesitem .art-inf span, .userhome .userCollect .userRepliesBox .collectitem .art-inf span, .userhome .userCollect .userCollectBox .topicsitem .art-inf span, .userhome .userCollect .userCollectBox .repliesitem .art-inf span, .userhome .userCollect .userCollectBox .collectitem .art-inf span {\n            display: inline-block; }\n          .userhome .userTopics .userTopicsBox .topicsitem .art-inf .last-time, .userhome .userTopics .userTopicsBox .repliesitem .art-inf .last-time, .userhome .userTopics .userTopicsBox .collectitem .art-inf .last-time, .userhome .userTopics .userRepliesBox .topicsitem .art-inf .last-time, .userhome .userTopics .userRepliesBox .repliesitem .art-inf .last-time, .userhome .userTopics .userRepliesBox .collectitem .art-inf .last-time, .userhome .userTopics .userCollectBox .topicsitem .art-inf .last-time, .userhome .userTopics .userCollectBox .repliesitem .art-inf .last-time, .userhome .userTopics .userCollectBox .collectitem .art-inf .last-time, .userhome .userReplies .userTopicsBox .topicsitem .art-inf .last-time, .userhome .userReplies .userTopicsBox .repliesitem .art-inf .last-time, .userhome .userReplies .userTopicsBox .collectitem .art-inf .last-time, .userhome .userReplies .userRepliesBox .topicsitem .art-inf .last-time, .userhome .userReplies .userRepliesBox .repliesitem .art-inf .last-time, .userhome .userReplies .userRepliesBox .collectitem .art-inf .last-time, .userhome .userReplies .userCollectBox .topicsitem .art-inf .last-time, .userhome .userReplies .userCollectBox .repliesitem .art-inf .last-time, .userhome .userReplies .userCollectBox .collectitem .art-inf .last-time, .userhome .userCollect .userTopicsBox .topicsitem .art-inf .last-time, .userhome .userCollect .userTopicsBox .repliesitem .art-inf .last-time, .userhome .userCollect .userTopicsBox .collectitem .art-inf .last-time, .userhome .userCollect .userRepliesBox .topicsitem .art-inf .last-time, .userhome .userCollect .userRepliesBox .repliesitem .art-inf .last-time, .userhome .userCollect .userRepliesBox .collectitem .art-inf .last-time, .userhome .userCollect .userCollectBox .topicsitem .art-inf .last-time, .userhome .userCollect .userCollectBox .repliesitem .art-inf .last-time, .userhome .userCollect .userCollectBox .collectitem .art-inf .last-time {\n            position: absolute;\n            right: 0px;\n            bottom: 0px;\n            font-size: 12px;\n            padding: 2px 4px; }\n      .userhome .userTopics .userTopicsBox .nodata, .userhome .userTopics .userRepliesBox .nodata, .userhome .userTopics .userCollectBox .nodata, .userhome .userReplies .userTopicsBox .nodata, .userhome .userReplies .userRepliesBox .nodata, .userhome .userReplies .userCollectBox .nodata, .userhome .userCollect .userTopicsBox .nodata, .userhome .userCollect .userRepliesBox .nodata, .userhome .userCollect .userCollectBox .nodata {\n        position: relative;\n        padding-top: 40px;\n        color: #A8B5C3;\n        font-size: 16px;\n        text-align: center;\n        line-height: 40px; }\n        .userhome .userTopics .userTopicsBox .nodata .nodataimg, .userhome .userTopics .userRepliesBox .nodata .nodataimg, .userhome .userTopics .userCollectBox .nodata .nodataimg, .userhome .userReplies .userTopicsBox .nodata .nodataimg, .userhome .userReplies .userRepliesBox .nodata .nodataimg, .userhome .userReplies .userCollectBox .nodata .nodataimg, .userhome .userCollect .userTopicsBox .nodata .nodataimg, .userhome .userCollect .userRepliesBox .nodata .nodataimg, .userhome .userCollect .userCollectBox .nodata .nodataimg {\n          position: absolute;\n          width: 40px;\n          height: 40px;\n          left: 0px;\n          top: 0px;\n          right: 0px;\n          margin: auto;\n          background: url(" + __webpack_require__(74) + ") no-repeat;\n          background-size: 100%; }\n", ""]);
 
 	// exports
 
 
 /***/ },
 /* 74 */
+/***/ function(module, exports) {
+
+	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAA+CAYAAABzwahEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQTU5MkRBMzVEMTYxMUU2OTQ2NkM0NDE1RTg2RjQxRiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQTU5MkRBNDVEMTYxMUU2OTQ2NkM0NDE1RTg2RjQxRiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJBNTkyREExNUQxNjExRTY5NDY2QzQ0MTVFODZGNDFGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJBNTkyREEyNUQxNjExRTY5NDY2QzQ0MTVFODZGNDFGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VlHDsAAABGZJREFUeNrkm2doFEEUxyeWGHsPdgOJMTYiWLAXbKhBxfLBggohGhUUg4qIghXsLUKsiIkKISKoH2ygWKLYiTVqsGGsxBJLTEyM/8e+g/Pwttztzu5eHvwgl5vb3f/O7Mx7b96GlZeXi4poVTx/5OXl+WtTCUwBM0AXEAHywSmwHjxxi9iYmJh/RKlZNXAMHAC9WTRZc5AI7oGJbuxxLeHbQILK9+EgA/R07VD/j7Xh4a1llcFa0B9U59FQy+t7mkS+gHeg2A3CqafDdB6nH/gE6mu0ewvugkvgCHjsxKEeZfBY9XW0aQqGgdUgF5wHPZwm/LuE8w8AV8FufkwcITxb4nUkgeughROEnwFPJYrvyDc72m7hpWA6+C1RfCtwGkTavY7HgqqS551odprC7RLehycdO4xm+q12CG8MsmzobW+bBcbKFk493cQBDlYaaCBL+BjGCRbJEaDlwmlC2eKweCKR4wBLhU8NwFWVYTvNnuW9hVNAMt+hUWQcSLFKOC1f7R0cQi8DLa0QPtrhuYMaYLMVwnu7IHEyHgwyW3iccIelCvUEimHh9VwivB2YY3WQ4lRbzm61KcJLXSScRucqs4R/dVmvU9amc6A/9p4kXoOGLhJOnZYulJxdEfgBaDvoBrhvRPgLEO+yXu/E+NpLsIdXgEKtoX5ThI61FkoKm/L2I7WEZ4vQM8opnOCkhl/hF8HnEBRPwdcOMNCf8DJwUISmkc7tag5MKt+AULNXYKWacNpAyAghwcU8yZGbm6Xlsi4VcvbNrLbjLJji+J96fPV832HhMqPSlOGcX3huNEihSohHLhNMo3QxOzSnAo3OSsBMF4k+DNqCdXztQYWlVLWwz+GCc0BfMBm8MTMeXwQ+OlAwOVqzhVJ+dtmKRATVtSxwkGAqJNollMKktGB8Dj0ZGFrXzzlA9BXu4WRQYIYrp+cuJwv7SrWoTIx2eCjvf8dMH1aPkUe3QrJgSoVt5Nk6gztAyBZOtkEoNWoy7Ayvxwv9JRJkCi81umQEYC+EUgxAtXC5Vp7ISGK+GRhq0XX8EkpZKO2FF/lpEwW6CqWQsKYIslTEiPAJwpo8/FGh7IS+1Gg3WCh5NI9JE55gsmCKBeaBs3ZlJvTeoF4mnfMbO0XxBkU38nk0pDzjFNfWMEF0OrvB7wP4bXefSVBKj8cGeZ7bPGKmqYiuq/J7qoEf4fX5mizhzQM8fgGHt92EsuPhz8YJJS+W8p9RSKXeh4TymojHMmUN9VoGj1vGwcRSoZ2yXgLW8N+beMI7zQFSLGdTIrzaP2AHR4rwEgPHpPz8XI6V9Ri90EOFwp4qSirkTfLTtpBj7zJZQ/2Ljjbk1U0SSvF9joFroJ2OITrW8VscqOQIE0xvjz9U+Y56i4pyKI0baHb2Aq8ck9llpdr12uADC87kG/RHtst6g4dZHZ//n+Rn0oyCfnJV9zKOcWCoV/d7fX4GRvESI/MtBluis1UcMdFM3YGHnmstrKK+VPtXgAEAvqzQGmJXJEEAAAAASUVORK5CYII="
+
+/***/ },
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -1536,14 +1542,14 @@ webpackJsonp([8,10],[
 	// 					<p class="name">{{user_name}}</p>
 	// 					<div class="baseinfo">
 	// 						<span class="jifen">积分：{{score}}</span>
-	// 						<span class="lasttime">注册时间：{{create_at | getLastTime}}</span>
+	// 						<span class="lasttime">注册时间：{{create_at | getDateTime}}</span>
 	// 					</div>
 	// 				</div>
 	// 			</div>
 	// 		</div>
-	// 		<!-- 最近创建主题 -->
+	// 		<!-- 创建主题 -->
 	// 		<div class="userTopics">
-	// 			<div class="userTopicsTitle">最近创建话题</div>
+	// 			<div class="userTopicsTitle">创建主题</div>
 	// 			<div class="userTopicsBox">
 	// 				<div v-for="topic in recent_topics" class="topicsitem clearfix" v-link="{name:'article',params:{id:topic.id}}">
 	// 					<a class="avatar" href="javascript:void(0);" v-link="{name:'userhome',params:{username:topic.author.loginname}}">
@@ -1554,12 +1560,15 @@ webpackJsonp([8,10],[
 	// 						<span class="last-time">{{topic.last_reply_at | getLastTime }}</span>
 	// 					</div>
 	// 				</div>
-	// 				<p v-if="topicsShow">还没有创建话题</p>
+	// 				<div class="nodata" v-if="topicsShow">
+	// 					<div class="nodataimg"></div>
+	// 					还没有创建主题
+	// 				</div>
 	// 			</div>
 	// 		</div>
-	// 		<!-- 最近参与的主题 -->
+	// 		<!-- 参与的主题 -->
 	// 		<div class="userReplies">
-	// 			<div class="userRepliesTitle">最近参与话题</div>
+	// 			<div class="userRepliesTitle">参与主题</div>
 	// 			<div class="userRepliesBox">
 	// 				<div v-for="replies in recent_replies" class="repliesitem clearfix" v-link="{name:'article',params:{id:replies.id}}">
 	// 					<a class="avatar" href="javascript:void(0);" v-link="{name:'userhome',params:{username:replies.author.loginname}}">
@@ -1570,7 +1579,29 @@ webpackJsonp([8,10],[
 	// 						<span class="last-time">{{replies.last_reply_at | getLastTime }}</span>
 	// 					</div>
 	// 				</div>
-	// 				<p v-if="repliesShow">还没有参与话题讨论</p>
+	// 				<div class="nodata" v-if="repliesShow">
+	// 					<div class="nodataimg"></div>
+	// 					还没有参与主题讨论
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 		<!-- 收藏主题 -->
+	// 		<div class="userCollect">
+	// 			<div class="userCollectTitle">收藏主题</div>
+	// 			<div class="userCollectBox">
+	// 				<div v-for="collect in topic_collect" class="collectitem clearfix" v-link="{name:'article',params:{id:collect.id}}">
+	// 					<a class="avatar" href="javascript:void(0);" v-link="{name:'userhome',params:{username:collect.author.loginname}}">
+	// 						<img :src="collect.author.avatar_url" :alt="collect.author.loginname">
+	// 					</a>
+	// 					<div class="art-inf">
+	// 						<a class="title">{{collect.title}}</a>
+	// 						<span class="last-time">{{collect.last_reply_at | getLastTime }}</span>
+	// 					</div>
+	// 				</div>
+	// 				<div class="nodata" v-if="collectShow">
+	// 					<div class="nodataimg"></div>
+	// 					没有收藏主题
+	// 				</div>
 	// 			</div>
 	// 		</div>
 	// 	</div>
@@ -1586,7 +1617,9 @@ webpackJsonp([8,10],[
 				topicsShow: false,
 				recent_topics: [],
 				repliesShow: false,
-				recent_replies: []
+				recent_replies: [],
+				collectShow: false,
+				topic_collect: []
 			};
 		},
 		route: {
@@ -1594,6 +1627,7 @@ webpackJsonp([8,10],[
 				var _this = this;
 
 				this.user_name = transition.to.params.username;
+				// 获取创建主题列表和参与话题列表
 				$.get('https://cnodejs.org/api/v1/user/' + this.user_name, function (d) {
 					if (d.success) {
 						_this.user_avatar = d.data.avatar_url;
@@ -1602,12 +1636,15 @@ webpackJsonp([8,10],[
 						_this.recent_topics = d.data.recent_topics;
 						_this.recent_replies = d.data.recent_replies;
 						// 判断创建话题数和参与话题数，如果为0显示文案提示
-						if (_this.recent_topics.length === 0) {
-							_this.topicsShow = true;
-						}
-						if (_this.recent_replies.length === 0) {
-							_this.repliesShow = true;
-						}
+						_this.recent_topics.length === 0 ? _this.topicsShow = true : _this.topicsShow = false;
+						_this.recent_replies.length === 0 ? _this.repliesShow = true : _this.repliesShow = false;
+					}
+				});
+				// 获取收藏主题列表
+				$.get('https://cnodejs.org/api/v1/topic_collect/' + this.user_name, function (d) {
+					if (d.success) {
+						_this.topic_collect = d.data;
+						_this.topic_collect.length === 0 ? _this.collectShow = true : _this.collectShow = false;
 					}
 				});
 			}
@@ -1664,20 +1701,20 @@ webpackJsonp([8,10],[
 	// 				}
 	// 			}
 	//     	}
-	//     	.userTopics, .userReplies {
+	//     	.userTopics, .userReplies, .userCollect {
 	//     		margin-top: 5px;
-	//     		.userTopicsTitle, .userRepliesTitle {
+	//     		.userTopicsTitle, .userRepliesTitle, .userCollectTitle {
 	//     			background: #fff;
 	// 				padding: 10px;
 	// 				color: #80bd01;
 	// 				font-size: 14px;
 	// 			}
-	// 			.userTopicsBox, .userRepliesBox {
+	// 			.userTopicsBox, .userRepliesBox, .userCollectBox {
 	// 				margin-top: 5px;
 	// 				padding-top: 10px;
 	// 				background: #fff;
 	// 				opacity: 0.8;
-	// 				.topicsitem, .repliesitem {
+	// 				.topicsitem, .repliesitem, .collectitem {
 	// 					position: relative;
 	// 					padding: 10px;
 	// 					background: #fff;
@@ -1722,6 +1759,25 @@ webpackJsonp([8,10],[
 	// 						}
 	// 					}
 	// 				}
+	// 				.nodata {
+	// 					position: relative;
+	// 					padding-top: 40px;
+	// 					color: #A8B5C3;
+	// 					font-size: 16px;
+	// 					text-align: center;
+	// 					line-height: 40px;
+	// 					.nodataimg {
+	// 						position: absolute;
+	// 						width: 40px;
+	// 						height: 40px;
+	// 						left: 0px;
+	// 						top: 0px;
+	// 						right: 0px;
+	// 						margin: auto;
+	// 						background: url('../img/nodata.png') no-repeat;
+	// 						background-size: 100%;
+	// 					}
+	// 				}
 	// 			}
 	//
 	//     	}
@@ -1730,10 +1786,10 @@ webpackJsonp([8,10],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ },
-/* 75 */
+/* 76 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<nv-header></nv-header>\n<div class=\"userhome\">\n\t<!-- 头像，个人基本信息 -->\n\t<div class=\"userInfo\">\n\t\t<div class=\"userInfoTitle\">个人信息</div>\n\t\t<div class=\"userInfoBox\">\n\t\t\t<div class=\"useravatar\">\n\t\t\t\t<img :src=\"user_avatar\">\n\t\t\t</div>\n\t\t\t<div class=\"userbase\">\n\t\t\t\t<p class=\"name\">{{user_name}}</p>\n\t\t\t\t<div class=\"baseinfo\">\n\t\t\t\t\t<span class=\"jifen\">积分：{{score}}</span>\n\t\t\t\t\t<span class=\"lasttime\">注册时间：{{create_at | getLastTime}}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- 最近创建主题 -->\n\t<div class=\"userTopics\">\n\t\t<div class=\"userTopicsTitle\">最近创建话题</div>\n\t\t<div class=\"userTopicsBox\">\n\t\t\t<div v-for=\"topic in recent_topics\" class=\"topicsitem clearfix\" v-link=\"{name:'article',params:{id:topic.id}}\">\n\t\t\t\t<a class=\"avatar\" href=\"javascript:void(0);\" v-link=\"{name:'userhome',params:{username:topic.author.loginname}}\">\n\t\t\t\t\t<img :src=\"topic.author.avatar_url\" :alt=\"topic.author.loginname\">\n\t\t\t\t</a>\n\t\t\t\t<div class=\"art-inf\">\n\t\t\t\t\t<a class=\"title\">{{topic.title}}</a>\n\t\t\t\t\t<span class=\"last-time\">{{topic.last_reply_at | getLastTime }}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<p v-if=\"topicsShow\">还没有创建话题</p>\n\t\t</div>\n\t</div>\n\t<!-- 最近参与的主题 -->\n\t<div class=\"userReplies\">\n\t\t<div class=\"userRepliesTitle\">最近参与话题</div>\n\t\t<div class=\"userRepliesBox\">\n\t\t\t<div v-for=\"replies in recent_replies\" class=\"repliesitem clearfix\" v-link=\"{name:'article',params:{id:replies.id}}\">\n\t\t\t\t<a class=\"avatar\" href=\"javascript:void(0);\" v-link=\"{name:'userhome',params:{username:replies.author.loginname}}\">\n\t\t\t\t\t<img :src=\"replies.author.avatar_url\" :alt=\"replies.author.loginname\">\n\t\t\t\t</a>\n\t\t\t\t<div class=\"art-inf\">\n\t\t\t\t\t<a class=\"title\">{{replies.title}}</a>\n\t\t\t\t\t<span class=\"last-time\">{{replies.last_reply_at | getLastTime }}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<p v-if=\"repliesShow\">还没有参与话题讨论</p>\n\t\t</div>\n\t</div>\n</div>\n";
+	module.exports = "\n<nv-header></nv-header>\n<div class=\"userhome\">\n\t<!-- 头像，个人基本信息 -->\n\t<div class=\"userInfo\">\n\t\t<div class=\"userInfoTitle\">个人信息</div>\n\t\t<div class=\"userInfoBox\">\n\t\t\t<div class=\"useravatar\">\n\t\t\t\t<img :src=\"user_avatar\">\n\t\t\t</div>\n\t\t\t<div class=\"userbase\">\n\t\t\t\t<p class=\"name\">{{user_name}}</p>\n\t\t\t\t<div class=\"baseinfo\">\n\t\t\t\t\t<span class=\"jifen\">积分：{{score}}</span>\n\t\t\t\t\t<span class=\"lasttime\">注册时间：{{create_at | getDateTime}}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- 创建主题 -->\n\t<div class=\"userTopics\">\n\t\t<div class=\"userTopicsTitle\">创建主题</div>\n\t\t<div class=\"userTopicsBox\">\n\t\t\t<div v-for=\"topic in recent_topics\" class=\"topicsitem clearfix\" v-link=\"{name:'article',params:{id:topic.id}}\">\n\t\t\t\t<a class=\"avatar\" href=\"javascript:void(0);\" v-link=\"{name:'userhome',params:{username:topic.author.loginname}}\">\n\t\t\t\t\t<img :src=\"topic.author.avatar_url\" :alt=\"topic.author.loginname\">\n\t\t\t\t</a>\n\t\t\t\t<div class=\"art-inf\">\n\t\t\t\t\t<a class=\"title\">{{topic.title}}</a>\n\t\t\t\t\t<span class=\"last-time\">{{topic.last_reply_at | getLastTime }}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"nodata\" v-if=\"topicsShow\">\n\t\t\t\t<div class=\"nodataimg\"></div>\n\t\t\t\t还没有创建主题\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- 参与的主题 -->\n\t<div class=\"userReplies\">\n\t\t<div class=\"userRepliesTitle\">参与主题</div>\n\t\t<div class=\"userRepliesBox\">\n\t\t\t<div v-for=\"replies in recent_replies\" class=\"repliesitem clearfix\" v-link=\"{name:'article',params:{id:replies.id}}\">\n\t\t\t\t<a class=\"avatar\" href=\"javascript:void(0);\" v-link=\"{name:'userhome',params:{username:replies.author.loginname}}\">\n\t\t\t\t\t<img :src=\"replies.author.avatar_url\" :alt=\"replies.author.loginname\">\n\t\t\t\t</a>\n\t\t\t\t<div class=\"art-inf\">\n\t\t\t\t\t<a class=\"title\">{{replies.title}}</a>\n\t\t\t\t\t<span class=\"last-time\">{{replies.last_reply_at | getLastTime }}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"nodata\" v-if=\"repliesShow\">\n\t\t\t\t<div class=\"nodataimg\"></div>\n\t\t\t\t还没有参与主题讨论\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- 收藏主题 -->\n\t<div class=\"userCollect\">\n\t\t<div class=\"userCollectTitle\">收藏主题</div>\n\t\t<div class=\"userCollectBox\">\n\t\t\t<div v-for=\"collect in topic_collect\" class=\"collectitem clearfix\" v-link=\"{name:'article',params:{id:collect.id}}\">\n\t\t\t\t<a class=\"avatar\" href=\"javascript:void(0);\" v-link=\"{name:'userhome',params:{username:collect.author.loginname}}\">\n\t\t\t\t\t<img :src=\"collect.author.avatar_url\" :alt=\"collect.author.loginname\">\n\t\t\t\t</a>\n\t\t\t\t<div class=\"art-inf\">\n\t\t\t\t\t<a class=\"title\">{{collect.title}}</a>\n\t\t\t\t\t<span class=\"last-time\">{{collect.last_reply_at | getLastTime }}</span>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"nodata\" v-if=\"collectShow\">\n\t\t\t\t<div class=\"nodataimg\"></div>\n\t\t\t\t没有收藏主题\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ }
 ]);
