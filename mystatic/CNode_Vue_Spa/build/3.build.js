@@ -329,7 +329,8 @@ webpackJsonp([3,10],[
 			'accesstoken': ''
 		},
 		tipContent: '',
-		tipShow: false
+		tipShow: false,
+		message_count: 0
 	};
 
 	var mutations = {
@@ -361,6 +362,11 @@ webpackJsonp([3,10],[
 		// 设置tips弹窗的显示隐藏状态
 		SETTIPSHOW: function SETTIPSHOW(state, status) {
 			state.tipShow = status;
+		},
+
+		// 设置未读消息条数
+		SETNOTMESSAGECOUNT: function SETNOTMESSAGECOUNT(state, count) {
+			state.message_count = count;
 		}
 	};
 
@@ -1250,7 +1256,7 @@ webpackJsonp([3,10],[
 
 
 	// module
-	exports.push([module.id, ".meun {\n  position: fixed;\n  top: 0px;\n  left: -200px;\n  width: 200px;\n  height: 100%;\n  background: #444444;\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  z-index: 99; }\n  .meun .user_info {\n    padding-top: 20px;\n    width: 100%; }\n    .meun .user_info .avatar {\n      width: 100%;\n      height: 40px;\n      text-align: center; }\n      .meun .user_info .avatar img {\n        width: 40px;\n        height: 40px;\n        border-radius: 20px;\n        cursor: pointer; }\n    .meun .user_info .name {\n      width: 100%; }\n      .meun .user_info .name p {\n        width: 100%;\n        padding: 5px 0;\n        color: #fff;\n        font-size: 14px;\n        text-align: center; }\n  .meun ul {\n    padding: 20px 0; }\n    .meun ul li {\n      color: #fff;\n      padding: 16px 0;\n      text-align: left;\n      text-indent: 10px;\n      line-height: 20px;\n      font-size: 20px;\n      margin: 0 25px; }\n\n.showMeun {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px); }\n", ""]);
+	exports.push([module.id, ".meun {\n  position: fixed;\n  top: 0px;\n  left: -200px;\n  width: 200px;\n  height: 100%;\n  background: #444444;\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  z-index: 99; }\n  .meun .user_info {\n    padding-top: 20px;\n    width: 100%; }\n    .meun .user_info .avatar {\n      width: 100%;\n      height: 40px;\n      text-align: center; }\n      .meun .user_info .avatar img {\n        width: 40px;\n        height: 40px;\n        border-radius: 20px;\n        cursor: pointer; }\n    .meun .user_info .name {\n      width: 100%; }\n      .meun .user_info .name p {\n        width: 100%;\n        padding: 5px 0;\n        color: #fff;\n        font-size: 14px;\n        text-align: center; }\n  .meun ul {\n    padding: 20px 0; }\n    .meun ul li {\n      position: relative;\n      color: #fff;\n      padding: 16px 0;\n      text-align: left;\n      text-indent: 10px;\n      line-height: 20px;\n      font-size: 20px;\n      margin: 0 25px; }\n      .meun ul li .message-count {\n        position: absolute;\n        display: inline-block;\n        top: 20px;\n        left: 100px;\n        width: 16px;\n        height: 16px;\n        background: #80bd01;\n        border-radius: 8px;\n        text-indent: 0px;\n        text-align: center;\n        font-size: 12px;\n        line-height: 16px; }\n\n.showMeun {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px); }\n", ""]);
 
 	// exports
 
@@ -1287,7 +1293,7 @@ webpackJsonp([3,10],[
 	// 			<li v-link="{name:'home'}">首页</li>
 	// 			<li v-link="{name : 'search'}">搜索</li>
 	// 			<li v-link="{name : 'login'}" v-if="!userLoginState">登录</li>
-	// 			<li v-if="userLoginState">未读消息</li>
+	// 			<li v-link="{name : 'usermessage'}" v-if="userLoginState">未读消息<em v-if="ache_getNotMessageCount !== 0" class="message-count">{{ache_getNotMessageCount}}</em></li>
 	// 			<li v-if="userLoginState">设置</li>
 	// 			<li v-link="{name : 'about'}">关于</li>
 	// 		</ul>
@@ -1305,7 +1311,8 @@ webpackJsonp([3,10],[
 		vuex: {
 			getters: {
 				userLoginState: _getters.getLoginState,
-				getUserInfo: _getters.getUserInfo
+				getUserInfo: _getters.getUserInfo,
+				ache_getNotMessageCount: _getters.getNotMessageCount
 			}
 		}
 	};
@@ -1348,6 +1355,7 @@ webpackJsonp([3,10],[
 	// 		ul {
 	// 			padding: 20px 0;
 	// 			li {
+	// 				position: relative;
 	// 			    color: #fff;
 	// 			    padding: 16px 0;
 	// 			    text-align: left;
@@ -1355,6 +1363,20 @@ webpackJsonp([3,10],[
 	// 			    line-height: 20px;
 	// 			    font-size: 20px;
 	// 			    margin: 0 25px;
+	// 			    .message-count {
+	// 			    	position: absolute;
+	// 				    display: inline-block;
+	// 				    top: 20px;
+	// 				    left: 100px;
+	// 				    width: 16px;
+	// 				    height: 16px;
+	// 				    background: #80bd01;
+	// 				    border-radius: 8px;
+	// 				    text-indent: 0px;
+	// 				    text-align: center;
+	// 				    font-size: 12px;
+	// 				    line-height: 16px;
+	// 			    }
 	// 			}
 	// 		}
 	// 	}
@@ -1384,12 +1406,15 @@ webpackJsonp([3,10],[
 	var getTipContent = exports.getTipContent = function getTipContent(state) {
 		return state.tipContent;
 	};
+	var getNotMessageCount = exports.getNotMessageCount = function getNotMessageCount(state) {
+		return state.message_count;
+	};
 
 /***/ },
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\" v-link=\"{name:'userhome',params:{username:this.user_name}}\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-if=\"userLoginState\">未读消息</li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
+	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\" v-link=\"{name:'userhome',params:{username:this.user_name}}\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-link=\"{name : 'usermessage'}\" v-if=\"userLoginState\">未读消息<em v-if=\"ache_getNotMessageCount !== 0\" class=\"message-count\">{{ache_getNotMessageCount}}</em></li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
 
 /***/ },
 /* 35 */
@@ -1468,7 +1493,7 @@ webpackJsonp([3,10],[
 
 
 	// module
-	exports.push([module.id, ".article {\n  overflow: hidden;\n  margin: 45px 5px 0px; }\n  .article > div {\n    margin-top: 10px;\n    background: #fff;\n    border-radius: 7px; }\n  .article .articlebox {\n    padding: 10px; }\n    .article .articlebox .articletitle h2 {\n      font-size: 20px; }\n    .article .articlebox .articletitle > div span {\n      display: inlin-block;\n      margin-right: 10px;\n      font-size: 12px;\n      color: #838383; }\n    .article .articlebox .articlecontent {\n      margin-top: 10px;\n      font-size: 15px;\n      line-height: 23px; }\n      .article .articlebox .articlecontent img {\n        width: 20rem; }\n  .article .articlereplies {\n    width: 100%;\n    margin-bottom: 20px; }\n    .article .articlereplies > div {\n      width: 100%;\n      padding: 10px; }\n    .article .articlereplies li {\n      padding: 10px;\n      border-top: 1px solid #f0f0f0; }\n      .article .articlereplies li .author_content {\n        position: relative; }\n        .article .articlereplies li .author_content img, .article .articlereplies li .author_content span {\n          float: left;\n          display: inline-block; }\n        .article .articlereplies li .author_content span {\n          margin-left: 10px;\n          line-height: 2rem; }\n        .article .articlereplies li .author_content img {\n          width: 30px;\n          height: 30px; }\n        .article .articlereplies li .author_content .re-time {\n          color: #08c; }\n        .article .articlereplies li .author_content .replyhandle {\n          position: absolute;\n          right: 0px;\n          top: 0px; }\n          .article .articlereplies li .author_content .replyhandle em {\n            padding: 3px;\n            color: #fff;\n            border-radius: 2px; }\n          .article .articlereplies li .author_content .replyhandle .upbtn {\n            background: #A1AFC9; }\n          .article .articlereplies li .author_content .replyhandle .isupbtn {\n            background: #159F5C; }\n          .article .articlereplies li .author_content .replyhandle .deletebtn {\n            background: #DD4F43; }\n          .article .articlereplies li .author_content .replyhandle .replybtn {\n            background: #FFCE42; }\n      .article .articlereplies li .repliescon {\n        margin-top: 10px;\n        line-height: 18px; }\n        .article .articlereplies li .repliescon .repliescontent {\n          background: #f0f0f0;\n          padding: 5px 2px;\n          border-radius: 5px; }\n  .article .recommentbox {\n    width: 100%;\n    margin-bottom: 20px;\n    padding: 10px; }\n    .article .recommentbox p {\n      width: 100%;\n      height: 25px;\n      color: #08c;\n      font-size: 15px; }\n", ""]);
+	exports.push([module.id, ".article {\n  overflow: hidden;\n  margin: 3rem 5px 0px; }\n  .article > div {\n    margin-top: 10px;\n    background: #fff;\n    border-radius: 7px; }\n  .article .articlebox {\n    padding: 10px; }\n    .article .articlebox .articletitle h2 {\n      font-size: 20px; }\n      .article .articlebox .articletitle h2 span {\n        display: inline-block;\n        margin-left: 10px;\n        padding: 3px 5px;\n        background: #80bd01;\n        color: #000;\n        font-size: 12px;\n        border-radius: 2px; }\n      .article .articlebox .articletitle h2 .on-collection {\n        background: #909090;\n        color: #fff; }\n    .article .articlebox .articletitle > div span {\n      display: inlin-block;\n      margin-right: 10px;\n      font-size: 12px;\n      color: #838383; }\n    .article .articlebox .articlecontent {\n      margin-top: 10px;\n      font-size: 15px;\n      line-height: 23px; }\n      .article .articlebox .articlecontent img {\n        width: 20rem; }\n  .article .articlereplies {\n    width: 100%;\n    margin-bottom: 20px; }\n    .article .articlereplies > div {\n      width: 100%;\n      padding: 10px; }\n    .article .articlereplies li {\n      padding: 10px;\n      border-top: 1px solid #f0f0f0; }\n      .article .articlereplies li .author_content {\n        position: relative; }\n        .article .articlereplies li .author_content img, .article .articlereplies li .author_content span {\n          float: left;\n          display: inline-block; }\n        .article .articlereplies li .author_content span {\n          margin-left: 10px;\n          line-height: 2rem; }\n        .article .articlereplies li .author_content img {\n          width: 30px;\n          height: 30px; }\n        .article .articlereplies li .author_content .re-time {\n          color: #08c; }\n        .article .articlereplies li .author_content .replyhandle {\n          position: absolute;\n          right: 0px;\n          top: 0px; }\n          .article .articlereplies li .author_content .replyhandle em {\n            padding: 3px;\n            color: #fff;\n            border-radius: 2px; }\n          .article .articlereplies li .author_content .replyhandle .upbtn {\n            background: #A1AFC9; }\n          .article .articlereplies li .author_content .replyhandle .isupbtn {\n            background: #159F5C; }\n          .article .articlereplies li .author_content .replyhandle .deletebtn {\n            background: #DD4F43; }\n          .article .articlereplies li .author_content .replyhandle .replybtn {\n            background: #FFCE42; }\n      .article .articlereplies li .repliescon {\n        margin-top: 10px; }\n        .article .articlereplies li .repliescon .repliescontent {\n          overflow: scroll;\n          background: #f0f0f0;\n          padding: 5px 2px;\n          border-radius: 5px; }\n  .article .recommentbox {\n    width: 100%;\n    margin-bottom: 20px;\n    padding-top: 0.3rem; }\n    .article .recommentbox p {\n      width: 100%;\n      height: 1rem;\n      margin-left: 5%;\n      color: #08c;\n      font-size: 0.8rem;\n      line-height: 1rem; }\n", ""]);
 
 	// exports
 
@@ -1511,7 +1536,7 @@ webpackJsonp([3,10],[
 	// 	<div class="article">
 	// 		<div class="articlebox">
 	// 			<div class="articletitle">
-	// 				<h2>{{art.title}}</h2>
+	// 				<h2>{{art.title}}<span class="collection" :class="{'on-collection' : conllection.is}" @click="collect" >{{conllection.title}}</span></h2>
 	// 				<div>
 	// 					<span>发布于{{art.createtime | getLastTime}}</span>
 	// 					<span>作者{{art.author_name}}</span>
@@ -1538,13 +1563,13 @@ webpackJsonp([3,10],[
 	// 					<div class="repliescon">
 	// 						<div class="repliescontent" v-html="reitem.content"></div>
 	// 					</div>
-	// 					<re-ply :replycontent.sync="replies" :artid="articleId" :islogin="userLoginState" :replyid="reitem.id" :replythisid.sync="replythisid" :replyto="reitem.author.loginname" v-if="replythisid === reitem.id"></re-ply>
+	// 					<re-ply :replycontent.sync="replies" :artid="articleId" :islogin="ache_userLoginState" :replyid="reitem.id" :replythisid.sync="replythisid" :replyto="reitem.author.loginname" v-if="replythisid === reitem.id"></re-ply>
 	// 				</li>
 	// 			</ul>
 	// 		</div>
 	// 		<div class="recommentbox">
 	// 			<p>留下你的足迹:</p>
-	// 			<re-ply :replycontent.sync="replies" :artid="articleId" :islogin="userLoginState" :replyid=""></re-ply>
+	// 			<re-ply :replycontent.sync="replies" :artid="articleId" :islogin="ache_userLoginState" :replyid=""></re-ply>
 	// 		</div>
 	// 	</div>
 	// </template>
@@ -1561,11 +1586,15 @@ webpackJsonp([3,10],[
 					'visit_count': 0,
 					'reply_count': 0
 				},
+				conllection: {
+					'is': false,
+					'title': '收藏'
+				},
 				replies: [],
 				articleId: '',
-				userid: this.getUserInfo.id || '',
-				username: this.getUserInfo.loginname || '',
-				accesstoken: this.getUserInfo.accesstoken || '',
+				userid: this.ache_getUserInfo.id || '',
+				username: this.ache_getUserInfo.loginname || '',
+				accesstoken: this.ache_getUserInfo.accesstoken || '',
 				replythisid: ''
 			};
 		},
@@ -1574,6 +1603,7 @@ webpackJsonp([3,10],[
 				var _this = this;
 
 				this.articleId = transition.to.params.id;
+				// 获取文章详情
 				$.get('https://cnodejs.org/api/v1/topic/' + this.articleId, function (d) {
 					if (d && d.data) {
 						var D = d.data;
@@ -1675,12 +1705,82 @@ webpackJsonp([3,10],[
 						}
 					}
 				});
+				// 更改收藏状态
+				if (this.ache_userLoginState) {
+					// 登录状态，判断是否收藏本文章
+					$.get('https://cnodejs.org/api/v1/topic_collect/' + this.username, function (d) {
+						if (d.success) {
+							var _iteratorNormalCompletion4 = true;
+							var _didIteratorError4 = false;
+							var _iteratorError4 = undefined;
+
+							try {
+								for (var _iterator4 = d.data[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+									var i = _step4.value;
+
+									if (_this.articleId === i.id) {
+										console.log('用户已收藏文章');
+										_this.conllection.is = true;
+										_this.conllection.title = '取消收藏';
+										break;
+									}
+								}
+							} catch (err) {
+								_didIteratorError4 = true;
+								_iteratorError4 = err;
+							} finally {
+								try {
+									if (!_iteratorNormalCompletion4 && _iterator4.return) {
+										_iterator4.return();
+									}
+								} finally {
+									if (_didIteratorError4) {
+										throw _iteratorError4;
+									}
+								}
+							}
+						}
+					});
+				}
 			}
 		},
 		methods: {
+			// 收藏
+			collect: function collect() {
+				var _this2 = this;
+
+				if (!this.ache_userLoginState) {
+					// 未登陆不能进行主题收藏
+					this.hand_tipShow(true);
+					this.hand_tipContent('您还未登录，不能进行收藏！');
+					return;
+				}
+				var rqdata = {
+					'accesstoken': this.accesstoken,
+					'topic_id': this.articleId
+				};
+				if (this.conllection.is) {
+					// 已收藏，进行取消收藏操作
+					$.post('https://cnodejs.org/api/v1/topic_collect/de_collect', rqdata, function (d) {
+						if (d.success) {
+							_this2.conllection.is = false;
+							_this2.conllection.title = '收藏';
+						}
+					});
+				} else {
+					// 未收藏，进行收藏操作
+					$.post('https://cnodejs.org/api/v1/topic_collect/collect', rqdata, function (d) {
+						if (d.success) {
+							_this2.conllection.is = true;
+							_this2.conllection.title = '取消收藏';
+						}
+					});
+				}
+			},
+			// 是否能评论
 			replythis: function replythis(id) {
-				if (!this.userLoginState) {
-					// 未登陆，不能进行评论
+				if (!this.ache_userLoginState) {
+					// 未登陆，不能进行评论,直接去登录页面
 					this.$route.router.go({ name: 'login' });
 					return;
 				}
@@ -1689,15 +1789,15 @@ webpackJsonp([3,10],[
 			deletereply: function deletereply() {
 				// cnode暂时没有删除的api接口
 			},
+			// 点赞
 			upreply: function upreply(index, replieId) {
-				var _this2 = this;
+				var _this3 = this;
 
-				var accesstoken = this.getUserInfo.accesstoken;
-				console.log(this.getUserInfo.id);
-				if (accesstoken === '') {
+				var accesstoken = this.accesstoken;
+				if (!this.ache_userLoginState) {
 					// 用户还没有登录，不能进行点赞功能
-					this.tipShow(true);
-					this.tipContent('您还未登录，不能进行点赞！');
+					this.hand_tipShow(true);
+					this.hand_tipContent('您还未登录，不能进行点赞！');
 					return;
 				}
 				var rqdata = {
@@ -1708,14 +1808,14 @@ webpackJsonp([3,10],[
 						console.log(data);
 						if (data.action === 'up') {
 							// 点赞
-							_this2.replies[index].ups.push('');
-							_this2.replies[index].isup = true;
-							console.log(_this2.replies[index]);
+							_this3.replies[index].ups.push('');
+							_this3.replies[index].isup = true;
+							console.log(_this3.replies[index]);
 						} else {
 							// 取消点赞
-							_this2.replies[index].ups.pop('');
-							_this2.replies[index].isup = false;
-							console.log(_this2.replies[index]);
+							_this3.replies[index].ups.pop('');
+							_this3.replies[index].isup = false;
+							console.log(_this3.replies[index]);
 						}
 					}
 				});
@@ -1729,12 +1829,12 @@ webpackJsonp([3,10],[
 		store: _store2.default,
 		vuex: {
 			actions: {
-				tipShow: _actions.setTipShow,
-				tipContent: _actions.setTipContent
+				hand_tipShow: _actions.setTipShow,
+				hand_tipContent: _actions.setTipContent
 			},
 			getters: {
-				userLoginState: _getters.getLoginState,
-				getUserInfo: _getters.getUserInfo
+				ache_userLoginState: _getters.getLoginState,
+				ache_getUserInfo: _getters.getUserInfo
 			}
 		}
 	};
@@ -1742,7 +1842,7 @@ webpackJsonp([3,10],[
 	// <style lang="sass">
 	// 	.article {
 	// 		overflow: hidden;
-	// 		margin: 45px 5px 0px;
+	// 		margin: 3rem 5px 0px;
 	// 		> div {
 	// 			margin-top:10px;
 	// 			background: #fff;
@@ -1753,6 +1853,19 @@ webpackJsonp([3,10],[
 	// 			.articletitle {
 	// 				h2 {
 	// 					font-size: 20px;
+	// 					span {
+	// 						display : inline-block;
+	// 						margin-left: 10px;
+	// 						padding: 3px 5px;
+	// 						background : #80bd01;
+	// 						color : #000;
+	// 						font-size : 12px;
+	// 						border-radius: 2px;
+	// 					}
+	// 					.on-collection {
+	// 						background : #909090;
+	// 						color : #fff;
+	// 					}
 	// 				}
 	// 				> div {
 	// 					span {
@@ -1824,8 +1937,8 @@ webpackJsonp([3,10],[
 	// 				}
 	// 				.repliescon {
 	// 					margin-top: 10px;
-	// 					line-height: 18px;
 	// 					.repliescontent {
+	// 						overflow: scroll;
 	// 						background: #f0f0f0;
 	// 						padding: 5px 2px;
 	// 						border-radius: 5px;
@@ -1836,12 +1949,14 @@ webpackJsonp([3,10],[
 	// 		.recommentbox {
 	// 			width: 100%;
 	// 			margin-bottom: 20px;
-	// 			padding:10px;
+	// 			padding-top: 0.3rem;
 	// 			p {
 	// 				width : 100%;
-	// 				height : 25px;
+	// 				height : 1rem;
+	// 				margin-left: 5%;
 	// 				color : #08c;
-	// 				font-size : 15px;
+	// 				font-size : 0.8rem;
+	// 				line-height : 1rem;
 	// 			}
 	// 		}
 	// 	}
@@ -2050,6 +2165,14 @@ webpackJsonp([3,10],[
 
 	  dispatch('SETTIPSHOW', status);
 	};
+	/*
+	 *设置未读消息的次数
+	 */
+	var setNotMessageCount = exports.setNotMessageCount = function setNotMessageCount(_ref5, count) {
+	  var dispatch = _ref5.dispatch;
+
+	  dispatch('SETNOTMESSAGECOUNT', count);
+	};
 
 /***/ },
 /* 52 */
@@ -2121,7 +2244,7 @@ webpackJsonp([3,10],[
 
 
 	// module
-	exports.push([module.id, "textarea {\n  width: 85%;\n  height: 80px;\n  padding: 10px;\n  outline: none;\n  resize: none; }\n\n.rebtn {\n  display: inline-block;\n  margin-top: 5px;\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 15px;\n  border-radius: 3px;\n  background-color: #08c; }\n", ""]);
+	exports.push([module.id, ".reply-box {\n  padding: 0.5rem 0; }\n  .reply-box .textinp {\n    position: relative;\n    margin-left: 5%;\n    height: 3.6rem; }\n    .reply-box .textinp textarea {\n      position: absolute;\n      left: 0;\n      bottom: 0;\n      width: 85%;\n      height: 2.8rem;\n      padding: 0.2rem;\n      font-size: 0.8rem;\n      outline: none;\n      resize: none; }\n  .reply-box .textsub {\n    margin-left: 5%; }\n    .reply-box .textsub .rebtn {\n      display: inline-block;\n      margin: 5px 0 0 0;\n      color: #fff;\n      padding: 5px 10px;\n      font-size: 15px;\n      border-radius: 3px;\n      background-color: #08c; }\n", ""]);
 
 	// exports
 
@@ -2141,8 +2264,14 @@ webpackJsonp([3,10],[
 	var _getters = __webpack_require__(33);
 
 	// <template>
-	// 	<textarea v-el:textarea v-model="repliescontent" placeholder="请输入留言"></textarea>
-	// 	<span class="rebtn" @click="recomment">回复</span>
+	// 	<div class="reply-box">
+	// 		<div class="textinp">
+	// 			<textarea v-el:textarea v-model="repliescontent" placeholder="请输入留言"></textarea>
+	// 		</div>
+	// 		<div class="textsub">
+	// 			<span class="rebtn" @click="recomment">回复</span>
+	// 		</div>
+	// 	</div>
 	// </template>
 	// <script>
 	exports.default = {
@@ -2228,21 +2357,36 @@ webpackJsonp([3,10],[
 	};
 	// </script>
 	// <style lang="sass">
-	// 	textarea {
-	// 		width : 85%;
-	// 		height : 80px;
-	// 		padding : 10px;
-	// 		outline : none;
-	// 		resize : none;
-	// 	}
-	// 	.rebtn {
-	// 		display : inline-block;
-	// 		margin-top : 5px;
-	// 		color : #fff;
-	// 		padding : 5px 10px;
-	// 		font-size : 15px;
-	// 		border-radius: 3px;
-	// 		background-color: #08c
+	// 	.reply-box {
+	// 		padding: 0.5rem 0;
+	// 		.textinp {
+	// 			position: relative;
+	// 			margin-left: 5%;
+	// 			height: 3.6rem;
+	// 			textarea {
+	// 				position: absolute;
+	// 				left:0;
+	// 				bottom: 0;
+	// 				width : 85%;
+	// 				height : 2.8rem;
+	// 				padding : 0.2rem;
+	// 				font-size : 0.8rem;
+	// 				outline : none;
+	// 				resize : none;
+	// 			}
+	// 		}
+	// 		.textsub {
+	// 			margin-left: 5%;
+	// 			.rebtn {
+	// 				display : inline-block;
+	// 				margin : 5px 0 0 0;
+	// 				color : #fff;
+	// 				padding : 5px 10px;
+	// 				font-size : 15px;
+	// 				border-radius: 3px;
+	// 				background-color: #08c
+	// 			}
+	// 		}
 	// 	}
 	// </style>
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
@@ -2251,13 +2395,13 @@ webpackJsonp([3,10],[
 /* 57 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<textarea v-el:textarea v-model=\"repliescontent\" placeholder=\"请输入留言\"></textarea>\n<span class=\"rebtn\" @click=\"recomment\">回复</span>\n";
+	module.exports = "\n<div class=\"reply-box\">\n\t<div class=\"textinp\">\n\t\t<textarea v-el:textarea v-model=\"repliescontent\" placeholder=\"请输入留言\"></textarea>\n\t</div>\n\t<div class=\"textsub\">\n\t\t<span class=\"rebtn\" @click=\"recomment\">回复</span>\n\t</div>\n</div>\n";
 
 /***/ },
 /* 58 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<nv-header></nv-header>\n<tips></tips>\n<div class=\"article\">\n\t<div class=\"articlebox\">\n\t\t<div class=\"articletitle\">\n\t\t\t<h2>{{art.title}}</h2>\n\t\t\t<div>\n\t\t\t\t<span>发布于{{art.createtime | getLastTime}}</span>\n\t\t\t\t<span>作者{{art.author_name}}</span>\n\t\t\t\t<span>{{art.reply_count}}次回复</span>\n\t\t\t\t<span>{{art.visit_count}}次浏览</span>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"articlecontent\" v-html=\"art.content\"></div>\n\t</div>\n\t<div class=\"articlereplies\">\n\t\t<div>共有<span>{{art.reply_count}}</span>条回复</div>\n\t\t<ul>\n\t\t\t<li v-for=\"reitem in replies\">\n\t\t\t\t<div class=\"author_content clearfix\">\n\t\t\t\t\t<img :src=\"reitem.author.avatar_url\" :alt=\"reitem.author.loginname\" v-link=\"{name:'userhome',params:{username:reitem.author.loginname}}\">\n\t\t\t\t\t<span>{{reitem.author.loginname}}</span>\n\t\t\t\t\t<span class=\"re-time\">{{$index + 1}}楼{{reitem.create_at | getLastTime}}</span>\n\t\t\t\t\t<div class=\"replyhandle\">\n\t\t\t\t\t\t<em class=\"upbtn\" :class=\"{'isupbtn' : reitem.isup}\" @click=\"upreply($index, reitem.id)\">赞{{reitem.ups.length}}</em>\n\t\t\t\t\t\t<em class=\"deletebtn\" v-if=\"username === reitem.author.loginname\" @click=\"deletereply\">删</em>\n\t\t\t\t\t\t<em class=\"replybtn\" @click=\"replythis(reitem.id)\">回</em>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"repliescon\">\n\t\t\t\t\t<div class=\"repliescontent\" v-html=\"reitem.content\"></div>\n\t\t\t\t</div>\n\t\t\t\t<re-ply :replycontent.sync=\"replies\" :artid=\"articleId\" :islogin=\"userLoginState\" :replyid=\"reitem.id\" :replythisid.sync=\"replythisid\" :replyto=\"reitem.author.loginname\" v-if=\"replythisid === reitem.id\"></re-ply>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"recommentbox\">\n\t\t<p>留下你的足迹:</p>\n\t\t<re-ply :replycontent.sync=\"replies\" :artid=\"articleId\" :islogin=\"userLoginState\" :replyid=\"\"></re-ply>\n\t</div>\n</div>\n";
+	module.exports = "\n<nv-header></nv-header>\n<tips></tips>\n<div class=\"article\">\n\t<div class=\"articlebox\">\n\t\t<div class=\"articletitle\">\n\t\t\t<h2>{{art.title}}<span class=\"collection\" :class=\"{'on-collection' : conllection.is}\" @click=\"collect\" >{{conllection.title}}</span></h2>\n\t\t\t<div>\n\t\t\t\t<span>发布于{{art.createtime | getLastTime}}</span>\n\t\t\t\t<span>作者{{art.author_name}}</span>\n\t\t\t\t<span>{{art.reply_count}}次回复</span>\n\t\t\t\t<span>{{art.visit_count}}次浏览</span>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"articlecontent\" v-html=\"art.content\"></div>\n\t</div>\n\t<div class=\"articlereplies\">\n\t\t<div>共有<span>{{art.reply_count}}</span>条回复</div>\n\t\t<ul>\n\t\t\t<li v-for=\"reitem in replies\">\n\t\t\t\t<div class=\"author_content clearfix\">\n\t\t\t\t\t<img :src=\"reitem.author.avatar_url\" :alt=\"reitem.author.loginname\" v-link=\"{name:'userhome',params:{username:reitem.author.loginname}}\">\n\t\t\t\t\t<span>{{reitem.author.loginname}}</span>\n\t\t\t\t\t<span class=\"re-time\">{{$index + 1}}楼{{reitem.create_at | getLastTime}}</span>\n\t\t\t\t\t<div class=\"replyhandle\">\n\t\t\t\t\t\t<em class=\"upbtn\" :class=\"{'isupbtn' : reitem.isup}\" @click=\"upreply($index, reitem.id)\">赞{{reitem.ups.length}}</em>\n\t\t\t\t\t\t<em class=\"deletebtn\" v-if=\"username === reitem.author.loginname\" @click=\"deletereply\">删</em>\n\t\t\t\t\t\t<em class=\"replybtn\" @click=\"replythis(reitem.id)\">回</em>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"repliescon\">\n\t\t\t\t\t<div class=\"repliescontent\" v-html=\"reitem.content\"></div>\n\t\t\t\t</div>\n\t\t\t\t<re-ply :replycontent.sync=\"replies\" :artid=\"articleId\" :islogin=\"ache_userLoginState\" :replyid=\"reitem.id\" :replythisid.sync=\"replythisid\" :replyto=\"reitem.author.loginname\" v-if=\"replythisid === reitem.id\"></re-ply>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"recommentbox\">\n\t\t<p>留下你的足迹:</p>\n\t\t<re-ply :replycontent.sync=\"replies\" :artid=\"articleId\" :islogin=\"ache_userLoginState\" :replyid=\"\"></re-ply>\n\t</div>\n</div>\n";
 
 /***/ }
 ]);

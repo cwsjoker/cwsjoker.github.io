@@ -329,7 +329,8 @@ webpackJsonp([4,10],[
 			'accesstoken': ''
 		},
 		tipContent: '',
-		tipShow: false
+		tipShow: false,
+		message_count: 0
 	};
 
 	var mutations = {
@@ -361,6 +362,11 @@ webpackJsonp([4,10],[
 		// 设置tips弹窗的显示隐藏状态
 		SETTIPSHOW: function SETTIPSHOW(state, status) {
 			state.tipShow = status;
+		},
+
+		// 设置未读消息条数
+		SETNOTMESSAGECOUNT: function SETNOTMESSAGECOUNT(state, count) {
+			state.message_count = count;
 		}
 	};
 
@@ -1250,7 +1256,7 @@ webpackJsonp([4,10],[
 
 
 	// module
-	exports.push([module.id, ".meun {\n  position: fixed;\n  top: 0px;\n  left: -200px;\n  width: 200px;\n  height: 100%;\n  background: #444444;\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  z-index: 99; }\n  .meun .user_info {\n    padding-top: 20px;\n    width: 100%; }\n    .meun .user_info .avatar {\n      width: 100%;\n      height: 40px;\n      text-align: center; }\n      .meun .user_info .avatar img {\n        width: 40px;\n        height: 40px;\n        border-radius: 20px;\n        cursor: pointer; }\n    .meun .user_info .name {\n      width: 100%; }\n      .meun .user_info .name p {\n        width: 100%;\n        padding: 5px 0;\n        color: #fff;\n        font-size: 14px;\n        text-align: center; }\n  .meun ul {\n    padding: 20px 0; }\n    .meun ul li {\n      color: #fff;\n      padding: 16px 0;\n      text-align: left;\n      text-indent: 10px;\n      line-height: 20px;\n      font-size: 20px;\n      margin: 0 25px; }\n\n.showMeun {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px); }\n", ""]);
+	exports.push([module.id, ".meun {\n  position: fixed;\n  top: 0px;\n  left: -200px;\n  width: 200px;\n  height: 100%;\n  background: #444444;\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  z-index: 99; }\n  .meun .user_info {\n    padding-top: 20px;\n    width: 100%; }\n    .meun .user_info .avatar {\n      width: 100%;\n      height: 40px;\n      text-align: center; }\n      .meun .user_info .avatar img {\n        width: 40px;\n        height: 40px;\n        border-radius: 20px;\n        cursor: pointer; }\n    .meun .user_info .name {\n      width: 100%; }\n      .meun .user_info .name p {\n        width: 100%;\n        padding: 5px 0;\n        color: #fff;\n        font-size: 14px;\n        text-align: center; }\n  .meun ul {\n    padding: 20px 0; }\n    .meun ul li {\n      position: relative;\n      color: #fff;\n      padding: 16px 0;\n      text-align: left;\n      text-indent: 10px;\n      line-height: 20px;\n      font-size: 20px;\n      margin: 0 25px; }\n      .meun ul li .message-count {\n        position: absolute;\n        display: inline-block;\n        top: 20px;\n        left: 100px;\n        width: 16px;\n        height: 16px;\n        background: #80bd01;\n        border-radius: 8px;\n        text-indent: 0px;\n        text-align: center;\n        font-size: 12px;\n        line-height: 16px; }\n\n.showMeun {\n  -webkit-transform: translateX(200px);\n          transform: translateX(200px); }\n", ""]);
 
 	// exports
 
@@ -1287,7 +1293,7 @@ webpackJsonp([4,10],[
 	// 			<li v-link="{name:'home'}">首页</li>
 	// 			<li v-link="{name : 'search'}">搜索</li>
 	// 			<li v-link="{name : 'login'}" v-if="!userLoginState">登录</li>
-	// 			<li v-if="userLoginState">未读消息</li>
+	// 			<li v-link="{name : 'usermessage'}" v-if="userLoginState">未读消息<em v-if="ache_getNotMessageCount !== 0" class="message-count">{{ache_getNotMessageCount}}</em></li>
 	// 			<li v-if="userLoginState">设置</li>
 	// 			<li v-link="{name : 'about'}">关于</li>
 	// 		</ul>
@@ -1305,7 +1311,8 @@ webpackJsonp([4,10],[
 		vuex: {
 			getters: {
 				userLoginState: _getters.getLoginState,
-				getUserInfo: _getters.getUserInfo
+				getUserInfo: _getters.getUserInfo,
+				ache_getNotMessageCount: _getters.getNotMessageCount
 			}
 		}
 	};
@@ -1348,6 +1355,7 @@ webpackJsonp([4,10],[
 	// 		ul {
 	// 			padding: 20px 0;
 	// 			li {
+	// 				position: relative;
 	// 			    color: #fff;
 	// 			    padding: 16px 0;
 	// 			    text-align: left;
@@ -1355,6 +1363,20 @@ webpackJsonp([4,10],[
 	// 			    line-height: 20px;
 	// 			    font-size: 20px;
 	// 			    margin: 0 25px;
+	// 			    .message-count {
+	// 			    	position: absolute;
+	// 				    display: inline-block;
+	// 				    top: 20px;
+	// 				    left: 100px;
+	// 				    width: 16px;
+	// 				    height: 16px;
+	// 				    background: #80bd01;
+	// 				    border-radius: 8px;
+	// 				    text-indent: 0px;
+	// 				    text-align: center;
+	// 				    font-size: 12px;
+	// 				    line-height: 16px;
+	// 			    }
 	// 			}
 	// 		}
 	// 	}
@@ -1384,12 +1406,15 @@ webpackJsonp([4,10],[
 	var getTipContent = exports.getTipContent = function getTipContent(state) {
 		return state.tipContent;
 	};
+	var getNotMessageCount = exports.getNotMessageCount = function getNotMessageCount(state) {
+		return state.message_count;
+	};
 
 /***/ },
 /* 34 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\" v-link=\"{name:'userhome',params:{username:this.user_name}}\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-if=\"userLoginState\">未读消息</li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
+	module.exports = "\n<div class=\"meun\" :class=\"{'showMeun':showm}\">\n\t<div class=\"user_info\" v-if=\"userLoginState\" v-link=\"{name:'userhome',params:{username:this.user_name}}\">\n\t\t<div class=\"avatar\">\n\t\t\t<img :src=\"user_avatar\" alt=\"\">\n\t\t</div>\n\t\t<div class=\"name\">\n\t\t\t<p v-text=\"user_name\"></p>\n\t\t</div>\n\t</div>\n\t<ul>\n\t\t<li v-link=\"{name:'home'}\">首页</li>\n\t\t<li v-link=\"{name : 'search'}\">搜索</li>\n\t\t<li v-link=\"{name : 'login'}\" v-if=\"!userLoginState\">登录</li>\n\t\t<li v-link=\"{name : 'usermessage'}\" v-if=\"userLoginState\">未读消息<em v-if=\"ache_getNotMessageCount !== 0\" class=\"message-count\">{{ache_getNotMessageCount}}</em></li>\n\t\t<li v-if=\"userLoginState\">设置</li>\n\t\t<li v-link=\"{name : 'about'}\">关于</li>\n\t</ul>\n</div>\n";
 
 /***/ },
 /* 35 */
