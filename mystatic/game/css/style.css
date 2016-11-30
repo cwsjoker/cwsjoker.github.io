@@ -486,7 +486,7 @@ html, body {
 	height: 24.54rem;
 }
 .rechild .childScroll .childbox .box-inf {
-	overflow: hidden;
+	overflow: scroll;
 	float: left;
 	width: 78.62%;
 	height: 7.41rem;

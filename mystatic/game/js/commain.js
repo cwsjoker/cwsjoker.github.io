@@ -23,12 +23,12 @@ $(window).ready(function(){
 	$('.childScroll').css({
 		'paddingTop' : rechildPT + 'rem'
 	});
-	$('.childhood').css({'display' : 'none'});
+	$('.childhood').css({'display' : 'block'});
 	$('.choose').css({'display' : 'none'});
 	$('.gameing').css({'display' : 'none'});
 	$('.passone').css({'display' : 'none'});
 	$('.agingame').css({'display' : 'none'});
-	$('.th-allrank').css({'display' : 'block'});
+	$('.th-allrank').css({'display' : 'none'});
 	$('.rechild').css({'display' : 'none'});
 	$('.endpage').css({'display' : 'none'});
 	//加载音频
@@ -90,15 +90,28 @@ for (var i = 0; i < 24; i++) {
 };
 //打乱数组
 function upsetArr(arr) {
-	var temp;
 	var newarr = arr;
    	for (var i = newarr.length; i > 0; i--) {
+		var temp = 0;
    		var num = Math.floor(Math.random() * i);
    		temp = newarr[i-1];
    		newarr[i-1] = newarr[num];
    		newarr[num] = temp;
    	};
    	return newarr;
+}
+// 跟去下标值取打乱总数组的八位数的数组
+function setRankArr() {
+	rankSectionArr = [];
+	//得到当前管卡的八张图片数组
+	for (var i = 8 * (rankNum - 1); i < 8 * rankNum; i++) {
+		rankSectionArr.push(rankArr[i]);
+	};
+	//将八张图片复制一份并打乱图片数据
+	for (var i = 0; i < 8; i++) {
+		rankSectionArr.push(rankSectionArr[i]);
+	};
+	rankSectionArr = upsetArr(rankSectionArr);
 }
 //设置关卡时间
 function ranksetTime() {
@@ -146,19 +159,6 @@ function changeNum(num){
 	}else{
 		return num;
 	}
-}
-// 跟去下标值取打乱总数组的八位数的数组
-function setRankArr() {
-	rankSectionArr = [];
-	//得到当前管卡的八张图片数组
-	for (var i = 8 * (rankNum - 1); i < 8 * rankNum; i++) {
-		rankSectionArr.push(rankArr[i]);
-	};
-	//将八张图片复制一份并打乱图片数据
-	for (var i = 0; i < 8; i++) {
-		rankSectionArr.push(rankSectionArr[i]);
-	};
-	rankSectionArr = upsetArr(rankSectionArr);
 }
 
 //游戏结束卡牌全部翻回来
@@ -246,7 +246,7 @@ function addImgBox() {
 		var childbox = $('<div class="childbox"></div>');
 		var imgbox = $('<div class="box-img"></div>');
 		var img = $('<img>');
-		console.log(i);
+		// console.log(i);
 		img.attr('src', result[i].src);
 		img.appendTo(imgbox);
 		var inf = $('<div class="box-inf"></div>');
@@ -373,10 +373,10 @@ $('.th-allrank .into-childhood').on('click', function() {
 		fileSrc = './js/imagesOld.json';
 	}else {
 	}
-	console.log(fileSrc);
+	// console.log(fileSrc);
 	$.getJSON(fileSrc,function(data){
 		result = data;
-		console.log(result);
+		// console.log(result);
 		addImgBox();	
 	});
 	$('.th-allrank').css({'display' : 'none'});
