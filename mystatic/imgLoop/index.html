@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		html, body {
+			background: #000;
+		}
+		body {
+			padding-top: 100px;
+		}
+		.content{
+			position: relative;
+			overflow: hidden;
+			width: 590px;
+			height: 280px;
+			margin: 50px auto;
+		}
+		.wrap {
+			overflow: auto;
+			width: 590px;
+			height: 280px;
+		}
+		.con {
+			position: absolute;
+			width: 4130px;
+			height: 280px;
+		}
+		.con div {
+			float: left;
+			width: 590px;
+			height: 280px;
+		}
+		.list {
+			position: absolute;
+			width: 150px;
+			height: 30px;
+			top: 250px;
+			left: 220px;
+		}
+		.list li {
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin-left: 5px;
+			background: #ccc;
+			list-style: none;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+		.list .select {
+			background: #f00;
+		}
+		.btnl, .btnr {
+			position: absolute;
+			display: block;
+			width: 20px;
+			height: 50px;
+			background: #ccc;
+			text-align: center;
+			line-height: 50px;
+			cursor: pointer;
+		}
+		.btnl {
+			top: 115px;
+			left: 20px;
+		}
+		.btnr {
+			top: 115px;
+			right: 20px;
+		}
+	</style>
+	<div class="content">
+		<div class="wrap" id="box">
+			<div class="con" id="con" style="left: -590px;">
+				<div><img src="images/5.jpg"></div>
+				<div><img src="images/1.jpg"></div>
+				<div><img src="images/2.jpg"></div>
+				<div><img src="images/3.jpg"></div>
+				<div><img src="images/4.jpg"></div>
+				<div><img src="images/5.jpg"></div>
+				<div><img src="images/1.jpg"></div>
+			</div>
+		</div>
+		<ul class="list" id="btn">
+			<li class="select"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span class="btnl" id="btnLeft"><</span>
+		<span class="btnr" id="btnRight">></span>
+	</div>
+	<script>
+		var box = document.getElementById('box');
+		var con = document.getElementById('con');
+		var conImgs = con.getElementsByTagName('div');
+		var btns = document.getElementById('btn').getElementsByTagName('li'); 
+		var btnLeft = document.getElementById('btnLeft');
+		var btnRight =document.getElementById('btnRight');
+		// params picWidth 每次移动的长度(图片的长度) total总张数
+		var imgLoop = (function() {
+			var index = 1,
+				suntotal = 0,
+				picW = 0,
+				timer = null,
+				timerIndex = null;
+			// 初始化函数
+			function initLoop(box, con, conImgs, btns, btnLeft, btnRight, picWidth, total) {
+				suntotal = total;
+				picW = picWidth;
+				for (var i = 0; i < btns.length; i++) {
+					btns[i].onclick = function(i) {
+						return function(){
+							var n = index;	
+							index = i + 1;
+							var speed = Math.abs(n - index) * 20;
+							if(timer){
+								return;
+							}
+							clearInterval(timerIndex);
+							starMove(- picWidth * index, speed, con, btns, true);
+							timerIndex = setInterval(indexMove, 5000);
+							for (var j = 0; j < btns.length; j++) {
+								btns[j].className = '';
+							};
+							this.className = 'select';
+							liStyle(btns);
+						}
+					}(i);
+				};
+				//上一张
+				btnLeft.onclick = function() {
+					if(timer){
+						return;
+					}
+					clearInterval(timerIndex);
+					var speed = 20;
+					index--;
+					starMove(- picWidth * index, speed, con, btns, true);
+					timerIndex = setInterval(indexMove, 5000);
+					liStyle(btns);
+				}
+				//下一张
+				btnRight.onclick = function() {
+					if(timer){
+						return;
+					}
+					clearInterval(timerIndex);
+					var speed = 20;
+					index ++;
+					starMove(- picWidth * index, speed, con, btns, true);
+					timerIndex = setInterval(indexMove, 5000);
+					liStyle(btns);
+				}
+				function indexMove() {
+					var speed = 20;
+					index++;
+					if(index == 0){
+						index = suntotal;
+					}
+					starMove(- picWidth * index,speed, con, btns);
+				}
+				// 设置定时切换计时器
+				timerIndex = setInterval(indexMove, 5000);
+			}
+			// 图片切换函数
+			function starMove(endVal, speed, con, btns, ishand) {
+				var startVal = parseInt(con.style.left);
+				// 防止切换当前页面窗口出现计时器阻塞造成的闪屏
+				if(!ishand) {
+					if(startVal - picW != endVal) {
+						index--;
+						return;
+					}
+				}
+				timer = setInterval(changeMove, 10);
+				// 切换运动函数
+				function changeMove() {
+					if(startVal > endVal){
+						startVal -= speed;
+					}else{
+						startVal += speed;
+					}
+					//让自动贴合距离自动始终比速度多10防止闪屏
+					if(Math.abs(startVal - endVal) < speed + 10){
+						startVal = endVal;
+						clearInterval(timer);
+						timer = null;
+					}
+					//最后一张转到第一张
+					if(startVal <= -(picW * (suntotal+1))){
+						startVal = -picW;
+						con.style.left = startVal + 'px';
+						index = 1;
+					}
+					//第一张转到最后一张
+					if(startVal >= 0){
+						startVal = -(picW * suntotal);
+						con.style.left = startVal + 'px';
+						index = suntotal;
+					}
+					con.style.left = startVal + 'px';
+					liStyle(btns);
+				}
+			}
+			// 小圆样式变化
+			function liStyle(btns) {
+				for (var i = 0; i < btns.length; i++) {
+					btns[i].className = '';
+				};
+				var n = index;
+				if(n >= suntotal + 1){
+					n = 0;
+				}
+				if(n <= 0){
+					n = suntotal;
+				}
+				btns[n-1].className = 'select';
+			}
+			var testAPI = {
+				initLoop : initLoop
+			};
+			return testAPI;
+		})();
+		imgLoop.initLoop(box, con, conImgs, btns, btnLeft, btnRight, 590, 5);
+	</script>
+</body>
+</html>
