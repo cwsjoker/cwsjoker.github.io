@@ -1,0 +1,570 @@
+@font-face {
+    font-family: 'Quartz';
+    src: local('Quartz'), url('../fonts/Quartz.ttf') format('truetype');
+}
+html, body {
+	overflow: hidden;
+	height: 100%;
+	max-width: 1080px;
+	min-width: 320px;
+	background: url('../images/bg.jpg') repeat-y;
+	background-size: 100%;
+}
+	/*横屏span样式*/
+.hspan {
+	display: block;
+	float: left;
+	width: 25%;
+	height: 4.51rem;
+	font-size: 2.96rem;
+	text-align: center;
+	line-height: 4.51rem;
+}
+	/*竖屏span样式*/
+.vspan {
+	display: block;
+	width: 100%;
+	height: 4.51rem;
+	font-size: 2.96rem;
+	text-align: center;
+	line-height: 4.51rem;
+}
+/*loading页面*/
+.loading {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background: black;
+	z-index: 9999;
+}
+.loading .spinner {
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	font-size: 10px;
+}
+.loading .spinner > div {
+	background-color: #67CF22;
+	height: 100%;
+	width: 6px;
+	display: inline-block;
+	-webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+	animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.loading .spinner .rect2 {
+	-webkit-animation-delay: -1.1s;
+	animation-delay: -1.1s;
+}
+
+.loading .spinner .rect3 {
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+.loading .spinner .rect4 {
+	-webkit-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+
+.loading .spinner .rect5 {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+  20% { -webkit-transform: scaleY(1.0) }
+}
+ 
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+/*开始页面*/
+.childhood {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.childhood .music {
+	position: absolute;
+	width: 7.5%;
+	height: 2rem;
+	top: 1.14rem;
+	left: 5.46%;
+	background: url('../images/music.png') no-repeat;
+	background-size: 100%;
+	z-index: 100;
+	cursor: pointer;
+}
+.childhood .index-bg {
+	width: 100%;
+	height: 27.88rem;
+	background: url('../images/8090bg.png') no-repeat 0 1.26rem;
+	background-size: 100%;
+}
+.childhood .into {
+	position: relative;
+	width: 100%;
+}
+.childhood .into-game {
+	position: absolute;
+	width: 67.96%;
+	height: 4.64rem;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	background: url('../images/four-font.png') no-repeat;
+	background-size: 100%;
+	color: #000;
+	font-size: 2.96rem;
+	font-weight: bold;
+	letter-spacing: 1.35rem;
+	text-indent: 0.86rem;
+	text-align: center;
+	line-height: 4.64rem;
+	cursor: pointer;
+}
+/*开始页面结束*/
+
+/*选择卡牌页面开始*/
+.choose {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.choose header {
+	width: 100%;
+	height: 4.02rem;
+	font-size: 2.1rem;
+	text-align: center;
+	line-height: 4.02rem;
+}
+.choose .container {
+	width: 81.94%;
+	height: 28.12rem;
+	margin: 0rem auto;
+}
+.choose .container .con-left {
+	float: left;
+	width: 46.1%;
+	height: 28.12rem;
+}
+.choose .container .con-right {
+	float: right;
+	width: 46.1%;
+	height: 28.12rem;
+}
+.choose .container .con-left dd, .choose .container .con-right dd {
+	width: 88.24%;
+	height: 8.89rem;
+	border: 0.59rem solid #6E5240;
+	border-radius: 0.2rem;
+}
+.choose .container .con-left dd img, .choose .container .con-right dd img {
+	display: block;
+	width: 100%;
+	height: 8.89rem;
+}
+.choose .container .con-left dt p, .choose .container .con-right dt p {
+	width: 100%;
+	height: 3.36rem;
+	font-size: 1.78rem;
+	text-align: center;
+	line-height: 3.36rem;
+}
+.choose .container .dlma {
+	margin-top: 1.23rem;
+}
+.choose .container dl dt a {
+	display: block;
+}
+/*选择卡牌页面介绍*/
+
+/*游戏页面*/
+.gameing {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.gameing header, .passone header {
+	width: 100%;             
+	height: 6.22rem;
+}
+.gameing header .game-rank, .passone header .game-rank {
+	float: left;
+	width: 41.2%;
+	height: 3.75rem;
+	margin: 1.23rem 0 0 2.5%;
+	background: url('../images/three-font.png') no-repeat;
+	background-size: 100%;
+}
+.gameing header .game-rank span, .passone header .game-rank span {
+	display: block;
+	float: left;
+	width: 33.33%;
+	height: 3.75rem;
+	color: #000;
+	font-size: 2.4rem;
+	font-family: 'Quartz';
+	text-align: center;
+	line-height: 3.75rem;
+}
+.gameing header .game-time, .passone header .game-time {
+	float: left;
+	width: 23.8%;
+	height: 2.42rem;
+	margin: 1.85rem 0 0 21.57%;
+	padding-left: 10%; 
+	background: url('../images/clock.png') no-repeat;
+	background-size: 27.61%;
+	color: #000;
+	font-size: 2rem;
+	font-family: 'Quartz';
+	line-height: 2.42rem;
+}
+.gameing .con {
+	width: 96.94%;
+	height: 25.83rem;
+	margin: 0rem auto;
+}
+.gameing .cover {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+}
+.gameing .con div {
+	position: relative;
+	float: left;
+	width: 6.02rem;
+	height: 6.02rem;
+	margin: 0.22rem;
+	-webkit-transform-style:preserve-3d;
+	/*-webkit-transform: rotateY(180deg);*/
+}
+.gameing .con div .front-img, .gameing .con div .back-img{
+	position: absolute;
+	display: block;
+	width: 6.02rem;
+	height: 6.02rem;
+	left: 0;
+	top: 0;
+	box-shadow:0 0 0 1px rgba(127, 127, 127, 1);
+}
+.gameing .con div .front-img {
+	-webkit-backface-visibility: hidden;
+}
+.gameing .con div .back-img {
+	-webkit-backface-visibility: hidden;
+}
+.changeRotateYimg {
+	-webkit-transform: rotateY(180deg);
+}
+.changeRotate {
+	-webkit-transition: all 0.2s linear;
+	-webkit-transform:rotateY(180deg);
+}
+.changeRotateY {
+	-webkit-transform: rotateY(180deg);
+}
+/*通过一关*/
+.passone {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.passone .passone-title {
+	width: 67.96%;
+	height: 4.64rem;
+	margin: 2.57rem auto 0;
+	background: url('../images/four-font.png') no-repeat;
+	background-size: 100%;
+	cursor: pointer;
+}
+.passone .passone-b {
+	position: relative;
+	width: 70.74%;
+	height: 11.78rem;
+	margin: 2.27rem auto 0;
+}
+.passone .passone-b div {
+	position: absolute;
+}
+.passone .passone-b div:nth-of-type(1) {
+	width: 28.53%;
+	height: 7.09rem;
+	right: 0;
+	top: 0;
+	background: url('../images/mario.png') no-repeat;
+	background-size: 100%;
+	z-index: 1;
+}
+.passone .passone-b div:nth-of-type(2) {
+	width: 18.06%;
+	height: 5.43rem;
+	bottom: 0.3rem;
+	left: 0;
+	background: url('../images/xwg.png') no-repeat;
+	background-size: 100%;
+	z-index: 5;
+}
+.passone .passone-b div:nth-of-type(3) {
+	width: 86.13%;
+	height: 4.32rem;
+	bottom: 0;
+	left: 8.12%;
+	border: 0.1rem solid #000;
+	border-radius: 0.1rem;
+	color: #000;
+	font-size: 2.22rem;
+	text-align: center;
+	line-height: 4.32rem;
+}
+/*再来一次*/
+.agingame {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.agingame .word {
+	width: 90.19%;
+	height: 18.02rem;
+	margin: 1.21rem auto 0;
+}
+.agingame .word .word-inf  {
+	float: left;
+	width: 68.79%;
+	height: 18.02rem;
+	font-size: 2.22rem;
+	line-height: 3.01rem;
+}
+.agingame .word .word-agin {
+	float: right;
+	width: 19.4%;
+	height: 18.02rem;
+	background: url('../images/v-four-font.png') no-repeat;
+	background-size: 100%;
+}
+.agingame .heimao {
+	position: absolute;
+	width: 79.63%;
+	height: 16.25rem;
+	left: 0;
+	bottom: 0;
+	background: url('../images/heimao.png') no-repeat;
+	background-size: 100%;
+}
+/*游戏通关页面*/
+.th-allrank {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.th-allrank .th-allrank-title {
+	width: 67.96%;
+	height: 4.64rem;
+	margin: 4.32rem auto 0;
+	background: url('../images/four-font.png') no-repeat;
+	background-size: 100%;
+}
+.th-allrank .into-childhood {
+	width: 60.93%;
+	height: 4.32rem;
+	margin: 7.9rem auto 0;
+	border: 0.1rem solid #000;
+	border-radius: 0.1rem;
+	font-size: 2.22rem;
+	text-align: center;
+	line-height: 4.32rem;
+}
+.th-allrank .into-other {
+	width: 60.93%;
+	height: 4.32rem;
+	margin: 1.53rem auto 0;
+	border: 0.1rem solid #000;
+	border-radius: 0.1rem;
+	font-size: 2.22rem;
+	text-align: center;
+	line-height: 4.32rem;
+}
+/*追忆童年页面*/
+.rechild {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.rechild .childScroll {
+	position: relative;
+	width: 2400%;
+	height: 100%;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;	
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+}
+.rechild .childScroll .childbox {
+	float: left;
+	width: 3.746%;
+	height: 100%;
+	padding: 0 0.21%;
+}
+.rechild .childScroll .childbox .box-title {
+	float: right;
+	width: 15%;
+	height: 1rem;
+}
+.rechild .childScroll .childbox .box-title span {
+	display: block;
+	width: 100%;
+	height: 3.75rem;
+	background: url('../images/tz.png') no-repeat;
+	background-size: 100%;
+	font-size: 2.52rem;
+	text-align: center;
+	line-height: 3.75rem;
+}
+.rechild .childScroll .childbox .box-img {
+	float: left;
+	width: 78.62%;
+	/*width: 70.37%;*/
+	height: 24.54rem;
+	background: #fff;
+	border: 0.2rem solid #fff;
+}
+.rechild .childScroll .childbox .box-img img {
+	width: 100%;
+	height: 24.54rem;
+}
+.rechild .childScroll .childbox .box-inf {
+	overflow: hidden;
+	float: left;
+	width: 78.62%;
+	height: 7.41rem;
+	margin-top: 0.5rem;
+	background: #fff;
+	font-size: 1.04rem;
+	border: 0.2rem solid #fff;
+}
+.rechild .child-next {
+	position: absolute;
+	width: 15.09%;
+	height: 4.27rem;
+	right: 3.52%;
+	bottom: 1.68rem;
+	background: url('../images/next.png') no-repeat 0.74rem 0.74rem;
+	background-size: 63.8%;
+	z-index: 10;
+}
+.rechild .child-prve {
+	position: absolute;
+	width: 15.09%;
+	height: 4.27rem;
+	right: 3.52%;
+	bottom: 5.95rem;
+	background: url('../images/prve.png') no-repeat 0.74rem 0.74rem;
+	background-size: 63.8%;
+	z-index: 10;
+}
+	/*珍惜当下页面*/
+.endpage {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+.endpage header {
+	width: 67.96%;
+	height: 4.64rem;
+	margin: 4.3rem auto;
+	background: url('../images/four-font.png') no-repeat;
+	background-size: 100%;
+	color: #000;
+	font-size: 2.96rem;
+	letter-spacing: 1.35rem;
+	text-indent: 0.86rem;
+	text-align: center;
+	line-height: 4.64rem;
+	cursor: pointer;
+}
+.endpage .con {
+	width: 70.37%;
+	height: 8.89rem;
+	margin: 1.68rem auto 0rem; 
+	color: #000;
+	font-size: 1.48rem;
+}
+.endpage .game-other {
+	width: 61.67%;
+	height: 4.52rem;
+	margin: 3.41rem auto 0;
+	color: #000;
+	font-size: 2.22rem;
+	text-align: center;
+	line-height: 4.52rem;
+	border: 0.1rem solid #000;
+	border-radius: 0.1rem;
+}
+.endpage .game-other a {
+	display: block;
+	color: #000;
+}
+.endpage .tips {
+	width: 50.37%;
+	height: 2.62rem;
+	margin: 1.9rem auto 0;
+	color: #000;
+	font-size: 1.19rem;
+}
